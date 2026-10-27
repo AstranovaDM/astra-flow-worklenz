@@ -58,11 +58,11 @@ const ReportingLayout = () => {
             minWidth: sidebarWidth,
             flexShrink: 0,
             background: railBg,
+            // HARD RULE: left nav stays put; only the content pane scrolls.
             height: '100%',
             overflow: 'hidden',
-            position: 'sticky',
-            top: 0,
-            alignSelf: 'flex-start',
+            position: 'relative',
+            alignSelf: 'stretch',
           }}
         >
           <ReportingSider />

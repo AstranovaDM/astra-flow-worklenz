@@ -91,11 +91,11 @@ const ClientPortalLayout = () => {
             width: sidebarWidth,
             minWidth: sidebarWidth,
             flexShrink: 0,
+            // HARD RULE: left nav stays put; only the content pane scrolls.
             height: '100%',
             overflow: 'hidden',
-            position: 'sticky',
-            top: 0,
-            alignSelf: 'flex-start',
+            position: 'relative',
+            alignSelf: 'stretch',
             background: railBg,
           }}
         >

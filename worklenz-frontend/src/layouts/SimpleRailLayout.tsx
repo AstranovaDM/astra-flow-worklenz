@@ -96,10 +96,11 @@ const SimpleRailLayout: React.FC<SimpleRailLayoutProps> = memo(({ surfaceKey, co
           flexShrink: 0,
           background: railBg,
           height: '100%',
+          // HARD RULE: left nav is viewport-tall and never scrolls with the page.
+          // Parent uses overflow:hidden + fixed height; only the content pane scrolls.
           overflow: 'hidden',
-          position: 'sticky',
-          top: 0,
-          alignSelf: 'flex-start',
+          position: 'relative',
+          alignSelf: 'stretch',
         }}
       >
         <NavRail

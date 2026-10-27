@@ -279,7 +279,7 @@
     "showIncludedOnly": "仅显示包含内容",
     "resetRecommended": "重置为推荐",
     "sourceField": "{{source}} 字段",
-    "worklenzField": "沃克伦茨场",
+    "worklenzField": "Astra Flow 字段",
     "autoMapPlaceholder": "自动映射将填充此处的字段。",
     "createCustomField": "创建自定义字段：{{name}}",
     "selectedField": "已选择",
