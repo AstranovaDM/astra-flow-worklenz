@@ -43,6 +43,9 @@ const ALLOWED_SOURCE_VALUES = new Set([
   'Google Calendar',
   'Twitter',
   'Worklenz',
+  // Licence titles stay in English on Legal notices (names only, no project/repo).
+  'GNU Affero General Public License v3.0 (AGPL-3.0)',
+  'MIT License',
   // Technical Jira hostname placeholder; keep the valid domain in every language.
   'yourcompany.atlassian.net',
   'Deutsch',
