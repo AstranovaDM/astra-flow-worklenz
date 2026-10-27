@@ -727,7 +727,7 @@ const ProjectViewMembers = () => {
       >
         {members?.total === 0 ? (
           <EmptyListPlaceholder
-            imageSrc="https://s3.us-west-2.amazonaws.com/worklenz.com/assets/empty-box.webp"
+            imageSrc="/images/astra-flow-mark.png"
             imageHeight={120}
             text={t('emptyText')}
           />

@@ -96,7 +96,7 @@ router.get("/daily-digest", (req: IWorkLenzRequest, res: IWorkLenzResponse) => {
 router.get("/daily-task-reminder", (req: IWorkLenzRequest, res: IWorkLenzResponse) => {
   const sampleTask = {
     name: "Prepare weekly status report",
-    taskUrl: "http://localhost:4200/worklenz/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
+    taskUrl: "http://localhost:4200/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
     projectName: "Allen LLC",
     workspaceName: "Automation",
     priorityName: "High",
@@ -114,8 +114,8 @@ router.get("/daily-task-reminder", (req: IWorkLenzRequest, res: IWorkLenzRespons
     assignedByMeDueToday: { tasks: [], totalCount: 0 },
     assignedByMeOverdue: { tasks: [], totalCount: 0 },
     adminOverview: [],
-    managePreferencesUrl: "/worklenz/settings/notifications",
-    viewAllTasksUrl: "/worklenz/my-tasks",
+    managePreferencesUrl: "/settings/notifications",
+    viewAllTasksUrl: "/my-tasks",
     unsubscribeUrl: "/public/digest/unsubscribe?token=sample",
   });
 });
@@ -123,7 +123,7 @@ router.get("/daily-task-reminder", (req: IWorkLenzRequest, res: IWorkLenzRespons
 router.get("/weekly-start-summary", (req: IWorkLenzRequest, res: IWorkLenzResponse) => {
   const sampleTask = {
     name: "Prepare weekly status report",
-    taskUrl: "http://localhost:4200/worklenz/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
+    taskUrl: "http://localhost:4200/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
     projectName: "Allen LLC",
     workspaceName: "Automation",
     priorityName: "High",
@@ -145,8 +145,8 @@ router.get("/weekly-start-summary", (req: IWorkLenzRequest, res: IWorkLenzRespon
       teams: [{ teamName: "Automation", dueToday: 3, dueThisWeek: 8, overdue: 2, memberCount: 5 }],
       totals: { dueToday: 3, dueThisWeek: 8, overdue: 2, memberCount: 5 },
     }],
-    managePreferencesUrl: "/worklenz/settings/notifications",
-    viewAllTasksUrl: "/worklenz/my-tasks",
+    managePreferencesUrl: "/settings/notifications",
+    viewAllTasksUrl: "/my-tasks",
     unsubscribeUrl: "/public/digest/unsubscribe?token=sample",
   });
 });
@@ -154,7 +154,7 @@ router.get("/weekly-start-summary", (req: IWorkLenzRequest, res: IWorkLenzRespon
 router.get("/weekly-end-summary", (req: IWorkLenzRequest, res: IWorkLenzResponse) => {
   const sampleTask = {
     name: "Prepare weekly status report",
-    taskUrl: "http://localhost:4200/worklenz/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
+    taskUrl: "http://localhost:4200/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
     projectName: "Allen LLC",
     workspaceName: "Automation",
     completedDay: "Wednesday",
@@ -175,8 +175,8 @@ router.get("/weekly-end-summary", (req: IWorkLenzRequest, res: IWorkLenzResponse
       teams: [{ teamName: "Automation", completed: 12, overdueThisWeek: 2, allTimeOverdue: 4, dueNextWeek: 6 }],
       totals: { completed: 12, overdueThisWeek: 2, allTimeOverdue: 4, dueNextWeek: 6 },
     }],
-    managePreferencesUrl: "/worklenz/settings/notifications",
-    viewAllTasksUrl: "/worklenz/my-tasks",
+    managePreferencesUrl: "/settings/notifications",
+    viewAllTasksUrl: "/my-tasks",
     unsubscribeUrl: "/public/digest/unsubscribe?token=sample",
   });
 });
@@ -186,7 +186,7 @@ router.get("/task-moved-to-done", (req: IWorkLenzRequest, res: IWorkLenzResponse
   const task = {
     name: "Soloman's Island Project - SIM Registration + Central DB + KYC",
     members: "Jane, Jane Wanniarachchi, Pasindu Ishan",
-    url: "http://localhost:4200/worklenz/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
+    url: "http://localhost:4200/projects/6de9c9df-2193-4212-8d64-9dfc36a83ed2?tab=tasks-list&task=f8b3fc45-a28b-4d8f-985e-9e43f8577aa8",
     team_name: "Automation",
     project_name: "Allen LLC"
   };

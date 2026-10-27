@@ -1,0 +1,33 @@
+# Local-only override: build frontend/backend/client-portal from this branch
+# so Astra Flow branding is visible. Not for remote deploy.
+services:
+  frontend:
+    image: astra-flow-frontend:local
+    build:
+      context: ./worklenz-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost
+        VITE_SOCKET_URL: ws://localhost
+    ports:
+      - "127.0.0.1:5000:5000"
+
+  backend:
+    image: astra-flow-backend:local
+    build:
+      context: ./worklenz-backend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:3000:3000"
+
+  client-portal:
+    image: astra-flow-client-portal:local
+    build:
+      context: ./worklenz-client-portal
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:5174:5174"
+
+  nginx:
+    ports: !override
+      - "127.0.0.1:${FLOW_PROXY_PORT:-18080}:80"
