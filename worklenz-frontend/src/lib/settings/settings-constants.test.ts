@@ -3,9 +3,33 @@ import { describe, expect, it, vi } from 'vitest';
 // Imported eagerly by settings-constants; irrelevant here and heavy to load.
 vi.mock('@/pages/settings/rate-card-settings/RateCardSettings', () => ({ default: () => null }));
 
-import { getAccessibleSettings, settingsItems } from './settings-constants';
+import {
+  getAccessibleSettings,
+  SETTINGS_UI_FLAGS,
+  settingsItems,
+} from './settings-constants';
 
 const helpItem = settingsItems.find(item => item.key === 'help');
+const mobileAppItem = settingsItems.find(item => item.key === 'mobile-app');
+const legalNoticesItem = settingsItems.find(item => item.key === 'legal-notices');
+
+describe('settings-constants: Mobile App visibility', () => {
+  it('should keep the Mobile App route registered but hide it from the sidebar by default', () => {
+    expect(mobileAppItem).toBeDefined();
+    expect(mobileAppItem?.endpoint).toBe('mobile-app');
+    expect(SETTINGS_UI_FLAGS.showMobileAppInSidebar).toBe(false);
+    expect(mobileAppItem?.showInSidebar).toBe(false);
+  });
+});
+
+describe('settings-constants: Legal notices placement', () => {
+  it('should live under Help & Support and stay out of the settings sidebar list', () => {
+    expect(legalNoticesItem).toBeDefined();
+    expect(legalNoticesItem?.groupKey).toBe('help-support');
+    expect(legalNoticesItem?.groupKey).not.toBe('account-personal');
+    expect(legalNoticesItem?.showInSidebar).toBe(false);
+  });
+});
 
 describe('settings-constants: Help tab', () => {
   it('should register a Help item in the HELP & SUPPORT group', () => {

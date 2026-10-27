@@ -75,6 +75,15 @@ const OrganizationCurrencySettings = lazy(
 const HelpSettings = lazy(() => import('@/pages/settings/help/help-settings'));
 const LegalNoticesPage = lazy(() => import('@/pages/settings/legal-notices/legal-notices'));
 
+/**
+ * Settings UI flags — hide items from the sidebar without deleting routes or page code.
+ * Flip a flag to true to surface the item again.
+ */
+export const SETTINGS_UI_FLAGS = {
+  /** Account & Personal → Mobile App. There are no mobile apps for Astra Flow. */
+  showMobileAppInSidebar: false,
+} as const;
+
 // type of menu item in settings sidebar
 type SettingMenuItem = {
   key: string;
@@ -145,6 +154,7 @@ export const settingsItems: SettingMenuItem[] = [
     element: React.createElement(LanguageAndRegionSettings),
   },
   {
+    // Route + page kept; hidden from the settings sidebar unless the flag is enabled.
     key: 'mobile-app',
     name: 'mobile-app',
     defaultValue: 'Mobile App',
@@ -153,6 +163,7 @@ export const settingsItems: SettingMenuItem[] = [
     groupDefaultValue: 'Account & Personal',
     icon: React.createElement(MobileOutlined),
     element: React.createElement(MobileAppSettings),
+    showInSidebar: SETTINGS_UI_FLAGS.showMobileAppInSidebar,
   },
   // Admin only items
   {
