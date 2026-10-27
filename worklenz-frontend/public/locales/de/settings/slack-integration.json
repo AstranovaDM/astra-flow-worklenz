@@ -23,7 +23,7 @@
     "step2": {
       "title": "2. Bot zu Kanälen einladen",
       "description": "Geben Sie in jedem Slack-Kanal, in dem Sie Benachrichtigungen erhalten möchten, ein:",
-      "command": "/invite @Astra Flow",
+      "command": "/invite @AstraFlow  # Bot einladen",
       "note": "Sie müssen dies nur einmal pro Kanal tun."
     },
     "step3": {
@@ -35,7 +35,7 @@
     "inviteBot": {
       "title": "Vergessen Sie nicht, den Bot einzuladen!",
       "description": "Bevor Sie Benachrichtigungen in einem Slack-Kanal erhalten können, müssen Sie den Astra Flow-Bot zu diesem Kanal einladen.",
-      "step": "Geben Sie in Ihrem Slack-Kanal ein: <code>/invite @Astra Flow</code>",
+      "step": "Geben Sie in Ihrem Slack-Kanal ein: <code>/invite @AstraFlow</code>",
       "note": "Dies muss nur einmal pro Kanal durchgeführt werden."
     },
     "getStarted": "Beginnen Sie, indem Sie eine Kanal-Konfiguration hinzufügen, um Benachrichtigungen von Ihren Projekten zu erhalten."

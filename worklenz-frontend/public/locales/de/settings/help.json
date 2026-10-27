@@ -15,7 +15,8 @@
     "linkedin": "LinkedIn",
     "x": "X",
     "privacyPolicy": "Datenschutzerklärung",
-    "about": "Über"
+    "about": "Über",
+    "legalNotices": "Rechtliche Hinweise"
   },
   "releaseNotes": {
     "unavailable": "Noch keine Versionshinweise veröffentlicht",
@@ -25,5 +26,14 @@
   "about": {
     "version": "Version",
     "lastUpdated": "Zuletzt aktualisiert"
+  },
+  "legalNotices": {
+    "pageTitle": "Rechtliche Hinweise",
+    "pageDescription": "Hinweise zu Drittanbieter-Software und Verfügbarkeit des Quellcodes.",
+    "openSourceTitle": "Open-Source-Komponenten",
+    "sourceOfferTitle": "Zugehöriger Quellcode",
+    "sourceOfferBody": "Gemäß AGPL-3.0 Abschnitt 13 ist der zugehörige Quellcode für die netzwerkzugängliche Kopie dieser Anwendung auf Anfrage verfügbar. Kontaktieren Sie support@astraconnect.io — wir stellen den vollständigen zugehörigen Quellcode der von Ihnen genutzten Version einschließlich Änderungen bereit.",
+    "contactTitle": "Kontakt",
+    "contactBody": "Rechtliches und Compliance: support@astraconnect.io"
   }
 }

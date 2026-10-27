@@ -15,7 +15,8 @@
     "linkedin": "LinkedIn",
     "x": "X",
     "privacyPolicy": "Politique de confidentialité",
-    "about": "À propos"
+    "about": "À propos",
+    "legalNotices": "Mentions légales"
   },
   "releaseNotes": {
     "unavailable": "Aucune note de version publiée pour le moment",
@@ -25,5 +26,14 @@
   "about": {
     "version": "Version",
     "lastUpdated": "Dernière mise à jour"
+  },
+  "legalNotices": {
+    "pageTitle": "Mentions légales",
+    "pageDescription": "Mentions relatives aux logiciels tiers et à la disponibilité du code source.",
+    "openSourceTitle": "Composants open source",
+    "sourceOfferTitle": "Code source correspondant",
+    "sourceOfferBody": "Conformément à l’article 13 de l’AGPL-3.0, le code source correspondant de la copie accessible via le réseau de cette application est disponible sur demande. Contactez support@astraconnect.io — nous fournirons le code source complet de la version que vous utilisez, y compris les modifications.",
+    "contactTitle": "Nous contacter",
+    "contactBody": "Juridique et conformité : support@astraconnect.io"
   }
 }

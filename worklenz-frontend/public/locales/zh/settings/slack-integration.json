@@ -23,7 +23,7 @@
     "step2": {
       "title": "2. 邀请机器人到频道",
       "description": "在每个您想要接收通知的 Slack 频道中，输入：",
-      "command": "/邀请@Astra Flow",
+      "command": "/邀请@AstraFlow",
       "note": "每个频道只需执行一次此操作。"
     },
     "step3": {
@@ -35,7 +35,7 @@
     "inviteBot": {
       "title": "别忘了邀请机器人！",
       "description": "在 Slack 频道中接收通知之前，您必须邀请 Astra Flow 机器人到该频道。",
-      "step": "在您的 Slack 频道中，输入：<code>/invite @Astra Flow</code>",
+      "step": "在您的 Slack 频道中，输入：<code>/invite @AstraFlow</code>",
       "note": "每个频道只需执行一次。"
     },
     "getStarted": "通过添加频道配置开始接收项目通知。"

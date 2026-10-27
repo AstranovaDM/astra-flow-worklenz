@@ -23,7 +23,7 @@
     "step2": {
       "title": "2. Fto Bot-in në Kanale",
       "description": "Në çdo kanal të Slack ku dëshironi të merrni njoftime, shkruani:",
-      "command": "/fto @Astra Flow",
+      "command": "/fto @AstraFlow",
       "note": "Ju duhet ta bëni këtë vetëm një herë për kanal."
     },
     "step3": {
@@ -35,7 +35,7 @@
     "inviteBot": {
       "title": "Mos harroni të ftoni bot-in!",
       "description": "Para se të mund të merrni njoftime në një kanal të Slack, duhet të ftoni bot-in Astra Flow në atë kanal.",
-      "step": "Në kanalin tuaj të Slack, shkruani: <code>/invite @Astra Flow</code>",
+      "step": "Në kanalin tuaj të Slack, shkruani: <code>/invite @AstraFlow</code>",
       "note": "Kjo duhet të bëhet vetëm një herë për kanal."
     },
     "getStarted": "Filloni duke shtuar një konfigurim kanali për të marrë njoftime nga projektet tuaja."

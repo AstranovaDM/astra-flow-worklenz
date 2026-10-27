@@ -23,7 +23,7 @@
     "step2": {
       "title": "2. Zaproś bota do kanałów",
       "description": "W każdym kanale Slack, na którym chcesz otrzymywać powiadomienia, wpisz:",
-      "command": "/zaproś @Astra Flow",
+      "command": "/zaproś @AstraFlow",
       "note": "Należy to zrobić tylko raz na kanał."
     },
     "step3": {
@@ -35,7 +35,7 @@
     "inviteBot": {
       "title": "Nie zapomnij zaprosić bota!",
       "description": "Zanim będziesz mógł otrzymywać powiadomienia na kanale Slack, musisz zaprosić bota Astra Flow do tego kanału.",
-      "step": "Na swoim kanale Slack wpisz: <code>/invite @Astra Flow</code>",
+      "step": "Na swoim kanale Slack wpisz: <code>/invite @AstraFlow</code>",
       "note": "Należy to zrobić tylko raz na kanał."
     },
     "getStarted": "Zacznij od dodania konfiguracji kanału, aby otrzymywać powiadomienia ze swoich projektów."

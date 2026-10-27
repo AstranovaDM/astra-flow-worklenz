@@ -23,7 +23,7 @@
     "step2": {
       "title": "2. Invitez le bot sur les chaînes",
       "description": "Dans chaque chaîne Slack sur laquelle vous souhaitez recevoir des notifications, saisissez :",
-      "command": "/inviter @Astra Flow",
+      "command": "/inviter @AstraFlow",
       "note": "Vous ne devez le faire qu'une seule fois par canal."
     },
     "step3": {
@@ -35,7 +35,7 @@
     "inviteBot": {
       "title": "N'oubliez pas d'inviter le bot !",
       "description": "Avant de pouvoir recevoir des notifications dans un canal Slack, vous devez inviter le robot Astra Flow sur ce canal.",
-      "step": "Dans votre chaîne Slack, tapez : <code>/invite @Astra Flow</code>",
+      "step": "Dans votre chaîne Slack, tapez : <code>/invite @AstraFlow</code>",
       "note": "Cela ne doit être fait qu’une seule fois par canal."
     },
     "getStarted": "Commencez par ajouter une configuration de canal pour recevoir des notifications de vos projets."

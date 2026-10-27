@@ -15,7 +15,8 @@
     "linkedin": "领英",
     "x": "X",
     "privacyPolicy": "隐私政策",
-    "about": "关于"
+    "about": "关于",
+    "legalNotices": "法律声明"
   },
   "releaseNotes": {
     "unavailable": "尚未发布任何发布说明",
@@ -25,5 +26,14 @@
   "about": {
     "version": "版本",
     "lastUpdated": "最后更新"
+  },
+  "legalNotices": {
+    "pageTitle": "法律声明",
+    "pageDescription": "第三方软件声明与源代码可用性说明。",
+    "openSourceTitle": "开源组件",
+    "sourceOfferTitle": "对应源代码",
+    "sourceOfferBody": "根据 AGPL-3.0 第 13 条，本应用可通过网络访问副本的对应源代码可按请求提供。请联系 support@astraconnect.io，我们将提供您所使用版本的完整对应源代码（含修改）。",
+    "contactTitle": "联系方式",
+    "contactBody": "法律与合规：support@astraconnect.io"
   }
 }

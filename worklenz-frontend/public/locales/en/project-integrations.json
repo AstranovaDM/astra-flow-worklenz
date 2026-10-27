@@ -17,7 +17,7 @@
     "selectNotificationsPlaceholder": "Select notification types...",
     "refresh": "Refresh",
     "addButton": "Add Integration",
-    "inviteBotTip": "Tip: Make sure to invite @Astra Flow bot to your Slack channel first!"
+    "inviteBotTip": "Tip: Make sure to invite @AstraFlow bot to your Slack channel first!"
   },
   "teams": {
     "title": "Microsoft Teams",

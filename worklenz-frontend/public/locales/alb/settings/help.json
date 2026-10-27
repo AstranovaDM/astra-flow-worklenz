@@ -15,7 +15,8 @@
     "linkedin": "LinkedIn",
     "x": "X",
     "privacyPolicy": "Politika e privatësisë",
-    "about": "Rreth"
+    "about": "Rreth",
+    "legalNotices": "Njoftime ligjore"
   },
   "releaseNotes": {
     "unavailable": "Ende nuk janë publikuar shënime versioni",
@@ -25,5 +26,14 @@
   "about": {
     "version": "Versioni",
     "lastUpdated": "Përditësuar së fundmi"
+  },
+  "legalNotices": {
+    "pageTitle": "Njoftime ligjore",
+    "pageDescription": "Njoftime për softuerin e palëve të treta dhe disponueshmërinë e kodit burimor.",
+    "openSourceTitle": "Komponentë me burim të hapur",
+    "sourceOfferTitle": "Kodi burimor përkatës",
+    "sourceOfferBody": "Sipas seksionit 13 të AGPL-3.0, kodi burimor përkatës i kopjes së aksesueshme në rrjet të kësaj aplikacioni është i disponueshëm me kërkesë. Kontaktoni support@astraconnect.io dhe ne do të ofrojmë kodin burimor të plotë për versionin që përdorni, përfshirë ndryshimet.",
+    "contactTitle": "Kontakt",
+    "contactBody": "Çështje ligjore dhe përputhshmëri: support@astraconnect.io"
   }
 }

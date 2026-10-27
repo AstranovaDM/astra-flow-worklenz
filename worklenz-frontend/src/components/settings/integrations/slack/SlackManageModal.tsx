@@ -58,7 +58,7 @@ export function SlackManageModal({
               })}
             </p>
             <code className="bg-amber-100 dark:bg-amber-900/40 px-2 py-1 rounded text-xs font-mono text-amber-900 dark:text-amber-200">
-              /invite @Astra Flow
+              /invite @AstraFlow
             </code>
             <p className="text-xs text-amber-700 dark:text-amber-400 mt-2 mb-0">
               {t('instructions.inviteBot.note', {
