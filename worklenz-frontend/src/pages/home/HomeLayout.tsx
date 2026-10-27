@@ -96,18 +96,41 @@ const HomeLayout = memo(() => {
 
   return (
     <>
-      <div style={{ display: 'flex', height: 'calc(100vh - 52px)', overflow: 'hidden', background: railPanelBg }}>
-        {/* Left sidebar */}
-        <HomeLeftSidebar activeView={activeView} onViewChange={handleViewChange} />
+      <div
+        style={{
+          display: 'flex',
+          height: '100%',
+          maxHeight: 'calc(100vh - 52px)',
+          overflow: 'hidden',
+          background: railPanelBg,
+        }}
+      >
+        {/* Left sidebar — viewport-tall; only the content pane scrolls. */}
+        <div
+          data-astra-nav-rail="true"
+          style={{
+            height: '100%',
+            maxHeight: 'calc(100vh - 52px)',
+            overflow: 'hidden',
+            position: 'sticky',
+            top: 0,
+            alignSelf: 'flex-start',
+            flexShrink: 0,
+          }}
+        >
+          <HomeLeftSidebar activeView={activeView} onViewChange={handleViewChange} />
+        </div>
 
         {/* Main content — the rounded top-left corner + matching border is the
             other half of the curve started by the sidebar's border-right;
             together they read as one continuous line bending around the
             corner, instead of two straight lines crossing at a hard angle. */}
         <div
+          data-astra-content-pane="true"
           style={{
             flex: 1,
             minWidth: 0,
+            height: '100%',
             overflow: 'auto',
             background: token.colorBgContainer,
             borderTopLeftRadius: 12,

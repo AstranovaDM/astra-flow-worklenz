@@ -87,20 +87,31 @@ const SimpleRailLayout: React.FC<SimpleRailLayoutProps> = memo(({ surfaceKey, co
   );
 
   return (
-    <div style={{ display: 'flex', height: 'calc(100vh - 52px)', overflow: 'hidden', background: railBg }}>
+    <div
+      style={{
+        display: 'flex',
+        height: '100%',
+        maxHeight: 'calc(100vh - 52px)',
+        overflow: 'hidden',
+        background: railBg,
+      }}
+    >
       <div
         className="nav-rail-width-transition"
+        data-astra-nav-rail="true"
         style={{
           width: sidebarWidth,
           minWidth: sidebarWidth,
           flexShrink: 0,
           background: railBg,
           height: '100%',
+          maxHeight: 'calc(100vh - 52px)',
           // HARD RULE: left nav is viewport-tall and never scrolls with the page.
           // Parent uses overflow:hidden + fixed height; only the content pane scrolls.
           overflow: 'hidden',
-          position: 'relative',
-          alignSelf: 'stretch',
+          position: 'sticky',
+          top: 0,
+          alignSelf: 'flex-start',
         }}
       >
         <NavRail
@@ -118,9 +129,11 @@ const SimpleRailLayout: React.FC<SimpleRailLayoutProps> = memo(({ surfaceKey, co
       </div>
 
       <div
+        data-astra-content-pane="true"
         style={{
           flex: 1,
           minWidth: 0,
+          height: '100%',
           overflow: 'auto',
           // Project detail (contentOverride) owns its own spacing; rail pages use 24.
           padding: contentOverride ? 0 : 24,

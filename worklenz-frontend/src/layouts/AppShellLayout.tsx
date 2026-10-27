@@ -78,7 +78,9 @@ const AppShellLayout = memo(() => {
   const railPanelBg = themeMode === 'dark' ? NAV_RAIL_BG_DARK : NAV_RAIL_BG_LIGHT;
 
   return (
-    <Layout className="min-h-screen">
+    // HARD RULE: shell is viewport-tall; the document itself must not scroll.
+    // Left rails stay put; only the right-hand content pane scrolls.
+    <Layout className="h-screen overflow-hidden" style={{ height: '100vh', overflow: 'hidden' }}>
       <ImportProgressNotifier />
       <TaskExportProgressNotifier />
       <AppSumoPopup
@@ -88,7 +90,7 @@ const AppShellLayout = memo(() => {
       <TrialExpirationAlert />
 
       <Layout.Header
-        className={`sticky top-0 z-[999] flex items-center p-0 ${
+        className={`z-[999] flex items-center p-0 flex-shrink-0 ${
           hasLeftRail ? '' : themeMode === 'dark' ? 'shadow-md border-b border-[#303030]' : 'shadow-md shadow-[#18181811]'
         }`}
         style={{

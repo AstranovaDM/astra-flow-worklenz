@@ -6,6 +6,9 @@ import GlobalUpgradeModal from '@/components/upgrade/GlobalUpgradeModal';
 import { PROJECTS_RAIL_SUB_ROUTES, FINANCE_RAIL_SUB_ROUTES } from '@/features/navigation/nav-registry';
 import { useHomeDashboardSocketSync } from '@/hooks/useHomeDashboardSocketSync';
 
+const PROJECT_DETAIL_PATH =
+  /^\/worklenz\/projects\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+
 const MainLayout = memo(() => {
   const location = useLocation();
 
@@ -66,6 +69,7 @@ const MainLayout = memo(() => {
   // Pages that mount their own SimpleRailLayout left rail (see main-routes.tsx)
   // need the full width for themselves — they handle their own content
   // padding internally, so MainLayout must not double up on it here.
+  // Project detail (:projectId) also mounts SimpleRailLayout via contentOverride.
   const hasSideRail = useMemo(
     () =>
       isHomePage ||
@@ -73,6 +77,7 @@ const MainLayout = memo(() => {
       location.pathname === '/worklenz/projects' ||
       (location.pathname.endsWith('/projects') && !location.pathname.includes('/admin-center/')) ||
       isProjectsSubRoute ||
+      PROJECT_DETAIL_PATH.test(location.pathname) ||
       location.pathname.includes('/worklenz/team-lead-reports') ||
       location.pathname === '/worklenz/finance' ||
       location.pathname.endsWith('/finance') ||
@@ -90,7 +95,19 @@ const MainLayout = memo(() => {
 
   return (
     <>
-      <Layout.Content className={contentClassName}>
+      <Layout.Content
+        className={contentClassName}
+        style={
+          hasSideRail
+            ? {
+                // Fill the viewport under the 52px header; never become the page scroller.
+                height: 'calc(100vh - 52px)',
+                overflow: 'hidden',
+                padding: 0,
+              }
+            : undefined
+        }
+      >
         <Outlet />
       </Layout.Content>
 
