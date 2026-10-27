@@ -9,7 +9,14 @@ const webLinkEntries = Object.entries(helpLinks).filter(
 
 describe('help-links-constants', () => {
   it('should export at least the web links the Help page lists', () => {
-    expect(webLinkEntries.length).toBeGreaterThanOrEqual(9);
+    expect(webLinkEntries.length).toBeGreaterThanOrEqual(8);
+  });
+
+  it('should not export a GitHub / repo URL', () => {
+    expect(Object.keys(helpLinks).some(k => /github/i.test(k))).toBe(false);
+    for (const [, url] of webLinkEntries) {
+      expect(String(url)).not.toMatch(/github/i);
+    }
   });
 
   it.each(webLinkEntries)('%s should be a valid https URL', (_name, url) => {

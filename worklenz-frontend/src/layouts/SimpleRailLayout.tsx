@@ -122,7 +122,8 @@ const SimpleRailLayout: React.FC<SimpleRailLayoutProps> = memo(({ surfaceKey, co
           flex: 1,
           minWidth: 0,
           overflow: 'auto',
-          padding: 24,
+          // Project detail (contentOverride) owns its own spacing; rail pages use 24.
+          padding: contentOverride ? 0 : 24,
           background: token.colorBgContainer,
           borderTopLeftRadius: 12,
           borderTop: `1px solid ${railDividerColor}`,

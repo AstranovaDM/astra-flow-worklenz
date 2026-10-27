@@ -204,8 +204,8 @@ export default defineConfig(({ command, mode }) => {
       cssCodeSplit: true,
 
       // **Sourcemaps**
-      // Generate hidden sourcemaps in production only when Sentry upload is active or explicitly requested
-      sourcemap: !isProduction ? 'inline' : shouldGenerateSourcemap ? 'hidden' : false,
+      // Never ship public source maps in production builds (browser-visible).
+      sourcemap: !isProduction ? 'inline' : false,
 
       // **Module Preload Polyfill** - Helps with chunk loading reliability
       modulePreload: {

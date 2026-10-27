@@ -8,10 +8,10 @@ const BUILD_TIMESTAMP = self.location.search.match(/v=(\d+)/)
 
 const CACHE_VERSION = 'v' + BUILD_TIMESTAMP;
 const CACHE_NAMES = {
-  STATIC: `worklenz-static-${CACHE_VERSION}`,
-  DYNAMIC: `worklenz-dynamic-${CACHE_VERSION}`,
-  API: `worklenz-api-${CACHE_VERSION}`,
-  IMAGES: `worklenz-images-${CACHE_VERSION}`,
+  STATIC: `astra-flow-static-${CACHE_VERSION}`,
+  DYNAMIC: `astra-flow-dynamic-${CACHE_VERSION}`,
+  API: `astra-flow-api-${CACHE_VERSION}`,
+  IMAGES: `astra-flow-images-${CACHE_VERSION}`,
 };
 
 // Resources to cache immediately on install

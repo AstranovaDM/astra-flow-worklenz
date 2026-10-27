@@ -10,7 +10,6 @@
     "emailSupport": "Assistance par e-mail",
     "youtube": "YouTube",
     "discord": "Discorde",
-    "github": "GitHub",
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
     "x": "X",
@@ -28,12 +27,9 @@
     "lastUpdated": "Dernière mise à jour"
   },
   "legalNotices": {
-    "pageTitle": "Mentions légales",
-    "pageDescription": "Mentions relatives aux logiciels tiers et à la disponibilité du code source.",
-    "openSourceTitle": "Composants open source",
-    "sourceOfferTitle": "Code source correspondant",
-    "sourceOfferBody": "Conformément à l’article 13 de l’AGPL-3.0, le code source correspondant de la copie accessible via le réseau de cette application est disponible sur demande. Contactez support@astraconnect.io — nous fournirons le code source complet de la version que vous utilisez, y compris les modifications.",
-    "contactTitle": "Nous contacter",
-    "contactBody": "Juridique et conformité : support@astraconnect.io"
+    "pageTitle": "Legal notices",
+    "agplName": "GNU Affero General Public License v3.0 (AGPL-3.0)",
+    "mitName": "MIT License",
+    "sourceOfferBody": "Source code available on request via Astra support — support@astraconnect.io"
   }
 }

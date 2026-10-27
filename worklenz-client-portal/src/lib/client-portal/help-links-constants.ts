@@ -4,7 +4,6 @@ export const WORKLENZ_CHANGELOG_URL = 'https://astraconnect.io/changelog';
 
 export const WORKLENZ_YOUTUBE_URL = 'https://astraconnect.io/youtube';
 export const WORKLENZ_DISCORD_URL = 'https://astraconnect.io/community';
-export const WORKLENZ_GITHUB_URL = 'https://astraconnect.io/github';
 export const WORKLENZ_FACEBOOK_URL = 'https://astraconnect.io/facebook';
 export const WORKLENZ_LINKEDIN_URL = 'https://astraconnect.io/linkedin';
 export const WORKLENZ_X_URL = 'https://astraconnect.io/x';

@@ -53,23 +53,24 @@ const NavbarLogo = () => {
   }, [organization, loadingOrganization, defaultLogo]);
 
   const logoHeight = useMemo(() => {
-    // For custom logos, maintain aspect ratio but constrain to navbar height
+    // Brand lockup should read clearly in the header; custom org logos stay slightly smaller.
+    // Use the dark lockup on dark backgrounds (LOGO_DARK) so the mark stays readable.
     if (organization?.logo_url) {
-      return isChristmasSeason ? 36 : 26;
+      return isChristmasSeason ? 42 : 36;
     }
-    return isChristmasSeason ? 36 : 26;
+    return isChristmasSeason ? 46 : 44;
   }, [organization?.logo_url, isChristmasSeason]);
 
   return (
     <Link to={'/worklenz/home'}>
-      <div style={{ position: 'relative', display: 'flex', alignItems: 'center', height: 44 }}>
+      <div style={{ position: 'relative', display: 'flex', alignItems: 'center', height: 48 }}>
         <img
           src={logoSrc}
           alt={t('logoAlt')}
           style={{
             height: logoHeight,
-            maxHeight: 44,
-            maxWidth: 140,
+            maxHeight: 48,
+            maxWidth: 200,
             display: 'block',
             marginBottom: isChristmasSeason && !organization?.logo_url ? 12 : 0,
             objectFit: 'contain',

@@ -1,0 +1,8 @@
+{
+  "name": "astra-flow-local-preview-tools",
+  "private": true,
+  "description": "Local-only preview helpers (not for production deploy)",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  }
+}

@@ -11,7 +11,6 @@ import {
   FacebookOutlined,
   FileTextOutlined,
   Flex,
-  GithubOutlined,
   HistoryOutlined,
   InfoCircleOutlined,
   LinkedinOutlined,
@@ -42,7 +41,6 @@ import {
   WORKLENZ_DISCORD_URL,
   WORKLENZ_DOCS_URL,
   WORKLENZ_FACEBOOK_URL,
-  WORKLENZ_GITHUB_URL,
   WORKLENZ_LINKEDIN_URL,
   WORKLENZ_PRIVACY_POLICY_URL,
   WORKLENZ_SUPPORT_MAILTO_URL,
@@ -382,14 +380,6 @@ const HELP_GROUPS: HelpGroup[] = [
       },
       {
         kind: 'link',
-        id: 'github',
-        labelKey: 'items.github',
-        defaultLabel: 'GitHub',
-        icon: GithubOutlined,
-        url: WORKLENZ_GITHUB_URL,
-      },
-      {
-        kind: 'link',
         id: 'facebook',
         labelKey: 'items.facebook',
         defaultLabel: 'Facebook',
@@ -446,7 +436,6 @@ export type HelpItemId =
   | 'changelog'
   | 'youtube'
   | 'discord'
-  | 'github'
   | 'facebook'
   | 'linkedin'
   | 'x'

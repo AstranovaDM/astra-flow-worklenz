@@ -107,7 +107,6 @@ const EXTERNAL_LINKS: Array<[label: string, url: string]> = [
   ['Changelog', helpLinks.WORKLENZ_CHANGELOG_URL],
   ['YouTube', helpLinks.WORKLENZ_YOUTUBE_URL],
   ['Discord', helpLinks.WORKLENZ_DISCORD_URL],
-  ['GitHub', helpLinks.WORKLENZ_GITHUB_URL],
   ['Facebook', helpLinks.WORKLENZ_FACEBOOK_URL],
   ['LinkedIn', helpLinks.WORKLENZ_LINKEDIN_URL],
   ['X', helpLinks.WORKLENZ_X_URL],
@@ -137,11 +136,11 @@ describe('HelpSettings', () => {
         'Email support',
         'YouTube',
         'Discord',
-        'GitHub',
         'Facebook',
         'LinkedIn',
         'X',
         'Privacy policy',
+        'Legal notices',
         'About',
       ];
       const elements = labels.map(label => screen.getByText(label));

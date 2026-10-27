@@ -31,3 +31,7 @@ services:
   nginx:
     ports: !override
       - "127.0.0.1:${FLOW_PROXY_PORT:-18080}:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # Local preview: HTTP proxy with WebSocket upgrade to native backend on host:3001
+    # and the frontend container (see nginx/conf.d/worklenz.conf listen 80 block).

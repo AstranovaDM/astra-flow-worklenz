@@ -540,11 +540,18 @@ const mainRoutes: RouteObject[] = [
         ),
       },
       {
+        // Project detail keeps the Projects left rail (HARD RULE: every screen
+        // has a fixed full-height left nav; only the content pane scrolls).
         path: `projects/:projectId`,
         element: (
-          <Suspense fallback={<SuspenseFallback />}>
-            <ProjectView />
-          </Suspense>
+          <SimpleRailLayout
+            surfaceKey="projects"
+            contentOverride={
+              <Suspense fallback={<SuspenseFallback />}>
+                <ProjectView />
+              </Suspense>
+            }
+          />
         ),
       },
       {

@@ -8,11 +8,13 @@ import { useAuthService } from '../hooks/useAuth';
 import { TrialExpirationAlert } from '@/components/TrialExpirationAlert/TrialExpirationAlert';
 import { ImportProgressNotifier } from '@/components/imports/ImportProgressNotifier';
 import { TaskExportProgressNotifier } from '@/components/projects/task-export/TaskExportProgressNotifier';
-import { MobileAppBanner } from '@/components/mobile-app/MobileAppBanner';
 import { AppSumoPopup } from '@/components/appsumo-popup/AppSumoPopup';
 import { NAV_RAIL_BG_DARK, NAV_RAIL_BG_LIGHT } from '@/components/nav-rail/nav-rail-constants';
 import { PROJECTS_RAIL_SUB_ROUTES, FINANCE_RAIL_SUB_ROUTES } from '@/features/navigation/nav-registry';
 import { shouldShowAppSumoPromo } from '@/utils/subscription-utils';
+
+const PROJECT_DETAIL_PATH =
+  /^\/worklenz\/projects\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 
 // Single shared header for every authenticated section (main app, reporting,
 // client portal) so there is exactly one <Navbar/> mount and one header
@@ -66,6 +68,7 @@ const AppShellLayout = memo(() => {
       location.pathname === '/worklenz/projects' ||
       (location.pathname.endsWith('/projects') && !location.pathname.includes('/admin-center/')) ||
       isProjectsSubRoute ||
+      PROJECT_DETAIL_PATH.test(location.pathname) ||
       location.pathname.includes('/worklenz/team-lead-reports') ||
       location.pathname === '/worklenz/finance' ||
       location.pathname.endsWith('/finance') ||
@@ -82,7 +85,6 @@ const AppShellLayout = memo(() => {
         isAppSumoUser={isAppSumoUser}
         frequencyDays={currentSession?.appsumo_popup_frequency_days}
       />
-      <MobileAppBanner />
       <TrialExpirationAlert />
 
       <Layout.Header
