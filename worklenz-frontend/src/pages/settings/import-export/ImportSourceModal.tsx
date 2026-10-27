@@ -278,7 +278,7 @@ export const ImportSourceModal: React.FC<ImportSourceModalProps> = ({
   const [defaultProjectStatusId, setDefaultProjectStatusId] = React.useState<string | null>(null);
   const [worklenzStatuses, setWorklenzStatuses] = React.useState<IProjectStatus[]>([]);
 
-  // For Jira direct imports, default the target Worklenz project name to the selected Jira project name.
+  // For Jira direct imports, default the target Astra Flow project name to the selected Jira project name.
   // Preserve manual edits by only auto-updating when the current value still looks auto-generated.
   React.useEffect(() => {
     if (!open) return;
@@ -444,7 +444,7 @@ export const ImportSourceModal: React.FC<ImportSourceModalProps> = ({
               }>
             ).map(row => ({
               ...row,
-              // Default: include only "recommended" Worklenz fields (and any required fields).
+              // Default: include only "recommended" Astra Flow fields (and any required fields).
               // If backend explicitly sends include, respect it.
               include:
                 typeof row.include === 'boolean'

@@ -123,7 +123,7 @@ export const OverviewTab = ({ project }: OverviewTabProps) => {
           status: form.status,
           phase: form.phase,
           progress_source: form.progress_source,
-          // Switching back to WorkLenz progress discards the manual value.
+          // Switching back to Astra Flow progress discards the manual value.
           manual_progress: form.progress_source === 'manual' ? (form.manual_progress ?? 0) : null,
           start_date: form.start_date || null,
           expected_completion: form.expected_completion || null,
@@ -180,7 +180,7 @@ export const OverviewTab = ({ project }: OverviewTabProps) => {
       ? t('overview.progressWorklenzHint', {
           value: overview.worklenz_progress,
           defaultValue:
-            'Read from the project’s WorkLenz progress ({{value}}%). It updates as tasks are completed.',
+            'Read from the project’s Astra Flow progress ({{value}}%). It updates as tasks are completed.',
         })
       : t('overview.progressManualHint', {
           defaultValue: 'Set by hand. It will not change when tasks are completed.',
@@ -234,7 +234,7 @@ export const OverviewTab = ({ project }: OverviewTabProps) => {
                   onChange={value => update({ progress_source: value })}
                   ariaLabel={t('overview.progressSource', { defaultValue: 'Progress source' })}
                   options={[
-                    { value: 'worklenz', label: t('overview.progressWorklenz', { defaultValue: 'WorkLenz progress' }) },
+                    { value: 'worklenz', label: t('overview.progressWorklenz', { defaultValue: 'Astra Flow progress' }) },
                     { value: 'manual', label: t('overview.progressManual', { defaultValue: 'Set manually' }) },
                   ]}
                 />
@@ -273,7 +273,7 @@ export const OverviewTab = ({ project }: OverviewTabProps) => {
                   extra={
                     followsWorklenz
                       ? t('overview.datesFromWorklenz', {
-                          defaultValue: 'Taken from the WorkLenz project. Switch progress to Set manually to enter dates here.',
+                          defaultValue: 'Taken from the Astra Flow project. Switch progress to Set manually to enter dates here.',
                         })
                       : t('overview.expectedCompletionHint', {
                           defaultValue: 'Leave blank and the portal shows “Not set” instead of inventing a date.',

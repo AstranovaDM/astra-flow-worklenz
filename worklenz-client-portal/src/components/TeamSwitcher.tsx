@@ -15,7 +15,7 @@ const initialOf = (value: string | null | undefined): string => (value?.trim()[0
 
 /**
  * What the client calls this portal: its Portal Title, or the common portal name when the operator has
- * not set one. The Worklenz team name is an internal label and is never shown to a client.
+ * not set one. The Astra Flow team name is an internal label and is never shown to a client.
  */
 export const teamDisplayName = (team: ClientOrganization, defaultName: string): string =>
   team.portalTitle?.trim() || defaultName;
@@ -34,7 +34,7 @@ export const TeamSwitcher = () => {
   const { token } = theme.useToken();
   const isDark = useAppSelector(state => state.ui.theme) === 'dark';
   const { teams, currentTeam, canSwitch, isSwitching, switchTo } = useTeamSwitch();
-  const defaultName = t('app.defaultPortalName', { defaultValue: 'Worklenz Client Portal' });
+  const defaultName = t('app.defaultPortalName', { defaultValue: 'Astra Flow Client Portal' });
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
 

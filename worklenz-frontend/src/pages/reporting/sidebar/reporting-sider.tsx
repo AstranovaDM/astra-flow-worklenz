@@ -45,7 +45,7 @@ const ReportingSider = () => {
     <NavRail
       resolved={resolved}
       activeKey={activeKey || ''}
-      isDark={isDark}
+      isDark={true}
       onSelect={handleSelect}
       isPinned={isPinned}
       onPin={pin}

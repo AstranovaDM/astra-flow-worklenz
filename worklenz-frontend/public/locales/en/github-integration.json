@@ -15,7 +15,7 @@
   },
   "notConfigured": {
     "title": "Not configured",
-    "description": "The GitHub App has not been set up for this Worklenz installation. Ask your administrator to configure it."
+    "description": "The GitHub App has not been set up for this Astra Flow installation. Ask your administrator to configure it."
   },
   "actions": {
     "retry": "Retry",
@@ -37,7 +37,7 @@
   "errors": {
     "invalidState": "The connection request expired. Please try connecting again.",
     "forbidden": "You need access to this GitHub installation and must be a team owner or admin.",
-    "alreadyConnected": "This GitHub account is already connected to another Worklenz team.",
+    "alreadyConnected": "This GitHub account is already connected to another Astra Flow team.",
     "teamAlreadyConnected": "This team is already connected to a different GitHub account. Disconnect it first.",
     "connectFailed": "Could not connect GitHub. Please try again.",
     "loadFailed": "Could not load GitHub status.",
@@ -104,9 +104,18 @@
       "cancel": "Cancel",
       "success": "Link removed.",
       "failed": "Could not remove the link.",
-      "branch": { "title": "Remove branch from this task?", "description": "{{name}} will no longer be shown on this task. The branch is not deleted on GitHub." },
-      "pullRequest": { "title": "Remove pull request from this task?", "description": "{{name}} will no longer be shown on this task. The pull request is not changed on GitHub." },
-      "commit": { "title": "Remove commit from this task?", "description": "{{name}} will no longer be shown on this task. The commit is not changed on GitHub." }
+      "branch": {
+        "title": "Remove branch from this task?",
+        "description": "{{name}} will no longer be shown on this task. The branch is not deleted on GitHub."
+      },
+      "pullRequest": {
+        "title": "Remove pull request from this task?",
+        "description": "{{name}} will no longer be shown on this task. The pull request is not changed on GitHub."
+      },
+      "commit": {
+        "title": "Remove commit from this task?",
+        "description": "{{name}} will no longer be shown on this task. The commit is not changed on GitHub."
+      }
     },
     "createBranch": {
       "button": "Create branch",

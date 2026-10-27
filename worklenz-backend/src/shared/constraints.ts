@@ -18,7 +18,7 @@ export const DB_CONSTRAINS: { [x: string]: string | null } = {
   job_titles_name_team_id_uindex:
     "Job title already exists. Please choose a different name.",
   users_email_uindex:
-    "A Worklenz account already exists for this email address. Please choose a different email.",
+    "A Astra Flow account already exists for this email address. Please choose a different email.",
   users_google_id_uindex: "",
   users_socket_id_uindex: "",
   team_members_user_id_team_id_uindex:

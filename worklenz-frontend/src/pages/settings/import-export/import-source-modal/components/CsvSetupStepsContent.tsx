@@ -12,7 +12,7 @@ import {
 } from '@/shared/antd-imports';
 import { decodeBuffer } from '../utils';
 
-// A small, valid CSV matching the headers Worklenz auto-maps on upload (see
+// A small, valid CSV matching the headers Astra Flow auto-maps on upload (see
 // CSV_COLUMN_ALIASES in ImportSourceModal.tsx), so users have a concrete example
 // of the expected shape instead of guessing.
 const SAMPLE_CSV_CONTENT = [
@@ -263,7 +263,7 @@ export const CsvSetupStepsContent: React.FC<CsvSetupStepsContentProps> = ({
       <div style={{ display: 'flex', flexDirection: 'row', gap: 48, minHeight: 420 }}>
         <div style={{ flex: 1, maxWidth: 420 }}>
           <Typography.Title level={3} style={{ color: themeToken.colorText, marginBottom: 8 }}>
-            {t('importStep.setupProjectTitle', { defaultValue: 'Set up a project in Worklenz' })}
+            {t('importStep.setupProjectTitle', { defaultValue: 'Set up a project in Astra Flow' })}
           </Typography.Title>
           <Typography.Paragraph style={{ color: themeToken.colorTextSecondary, marginBottom: 16 }}>
             {t('importStep.setupProjectDesc', {

@@ -34,14 +34,14 @@
 /* On item hover / focus: subtle, soft glow on the icon only, never the background */
 .nav-rail-item-wrapper:hover .nav-rail-item-icon,
 .nav-rail-item-wrapper:focus-within .nav-rail-item-icon {
-  color: var(--nav-rail-color-primary, #1890ff) !important;
+  color: var(--nav-rail-color-primary, #1677FF) !important;
   filter: drop-shadow(0 0 3px rgba(24, 144, 255, 0.4));
-  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--nav-rail-glow, #1890ff) 45%, transparent));
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--nav-rail-glow, #1677FF) 45%, transparent));
 }
 
 .nav-rail-item-wrapper:hover .nav-rail-item-label,
 .nav-rail-item-wrapper:focus-within .nav-rail-item-label {
-  color: var(--nav-rail-color-primary, #1890ff) !important;
+  color: var(--nav-rail-color-primary, #1677FF) !important;
 }
 
 /* ── Pin affordance ────────────────────────────────────────────────────────
@@ -68,12 +68,12 @@
 .nav-rail-pin-affordance:hover,
 .nav-rail-pin-affordance:focus-visible {
   filter: drop-shadow(0 0 2.5px rgba(24, 144, 255, 0.4));
-  filter: drop-shadow(0 0 2.5px color-mix(in srgb, var(--nav-rail-glow, #1890ff) 45%, transparent));
+  filter: drop-shadow(0 0 2.5px color-mix(in srgb, var(--nav-rail-glow, #1677FF) 45%, transparent));
 }
 
 .nav-rail-pin-affordance:hover .anticon,
 .nav-rail-pin-affordance:focus-visible .anticon {
-  color: var(--nav-rail-color-primary, #1890ff) !important;
+  color: var(--nav-rail-color-primary, #1677FF) !important;
 }
 
 /* ── Reorder handle affordance ─────────────────────────────────────────────
@@ -88,7 +88,7 @@
 
 .nav-rail-affordance:focus-visible {
   opacity: 1;
-  outline: 2px solid var(--nav-rail-color-primary, #1890ff);
+  outline: 2px solid var(--nav-rail-color-primary, #1677FF);
   outline-offset: 1px;
 }
 

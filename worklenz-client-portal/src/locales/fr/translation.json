@@ -68,8 +68,8 @@
     "failed_to_validate_invite": "Échec de la validation de l'invitation",
     "network_error": "Erreur réseau. Veuillez vérifier votre connexion.",
     "server_error": "Erreur de serveur. Veuillez réessayer plus tard.",
-    "worklenz_account_found_title": "Compte Worklenz trouvé",
-    "worklenz_account_found_message": "Cet email est déjà enregistré avec un compte Worklenz. Veuillez utiliser le mot de passe de votre compte Worklenz existant pour vous inscrire au portail client."
+    "worklenz_account_found_title": "Compte Astra Flow trouvé",
+    "worklenz_account_found_message": "Cet email est déjà enregistré avec un compte Astra Flow. Veuillez utiliser le mot de passe de votre compte Astra Flow existant pour vous inscrire au portail client."
   },
   "dashboard": {
     "title": "Aperçu",

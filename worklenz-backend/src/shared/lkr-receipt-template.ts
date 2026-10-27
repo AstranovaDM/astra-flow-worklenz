@@ -96,8 +96,8 @@ export class LkrReceiptTemplate {
   </table>
 
   <div class="footer">
-    <strong>Worklenz</strong> — This is an automatically generated receipt.<br />
-    For support, contact <strong>support@worklenz.com</strong>
+    <strong>Astra Flow</strong> — This is an automatically generated receipt.<br />
+    For support, contact <strong>support@astraconnect.io</strong>
   </div>
 </div>
 </body>

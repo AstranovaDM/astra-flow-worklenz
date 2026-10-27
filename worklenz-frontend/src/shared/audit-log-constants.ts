@@ -17,7 +17,7 @@
  * Scope note (spike #32, task 0.8): "SSO configuration changed" and "API token
  * created/revoked" are deliberately NOT included below, even though the design mockup shows
  * them as sample rows. A direct backend code audit found neither an enterprise SSO/SAML
- * integration nor a user-facing API token feature anywhere in Worklenz today — Google/Apple
+ * integration nor a user-facing API token feature anywhere in Astra Flow today — Google/Apple
  * sign-in are consumer OAuth, not customer-configurable SSO. Rendering a filter/chip for an
  * event type nothing can ever emit would be misleading; add these once (if) those features
  * ship.

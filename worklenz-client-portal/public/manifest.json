@@ -1,7 +1,7 @@
 {
-  "name": "Worklenz Client Portal",
-  "short_name": "Worklenz",
-  "description": "Client portal for Worklenz project management",
+  "name": "Astra Flow Client Portal",
+  "short_name": "Astra Flow",
+  "description": "Client portal for Astra Flow project management",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -15,7 +15,7 @@ describe('normalizeCsvHeader', () => {
 });
 
 describe('autoMapCsvColumns', () => {
-  it('maps a typical Linear export header row to Worklenz fields', () => {
+  it('maps a typical Linear export header row to Astra Flow fields', () => {
     const columns = [
       'ID',
       'Team',
@@ -60,7 +60,7 @@ describe('autoMapCsvColumns', () => {
     });
   });
 
-  it('maps each Worklenz target at most once, first match wins', () => {
+  it('maps each Astra Flow target at most once, first match wins', () => {
     // Two columns could both plausibly mean "title" — only the first is mapped;
     // the second is left for the user to map manually (e.g. as a custom field).
     expect(autoMapCsvColumns(['Title', 'Name'])).toEqual({ Title: 'key' });

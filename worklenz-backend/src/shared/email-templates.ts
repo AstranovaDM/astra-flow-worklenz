@@ -8,7 +8,7 @@ import { reserveInvitationEmail } from "../services/security-policy.service";
 
 // Ensure FRONTEND_URL is always an absolute URL with a scheme.
 // Without https://, email clients (e.g. Outlook Safe Links) strip the <a> tag.
-const _rawFrontendUrl = process.env.FRONTEND_URL || "worklenz.com";
+const _rawFrontendUrl = process.env.FRONTEND_URL || "astraconnect.io";
 const FRONTEND_URL = (_rawFrontendUrl.startsWith("http") ? _rawFrontendUrl : `https://${_rawFrontendUrl}`).replace(/\/+$/, "");
 
 const DEFAULT_LOGO_URL = "https://s3.us-west-2.amazonaws.com/worklenz.com/email-templates-assets/worklenz-light-mode.png";
@@ -31,7 +31,7 @@ function safeLogoUrl(url: string): string {
 
 /**
  * Fetches the organization branding logo URL for a given team.
- * Falls back to the default Worklenz logo if no custom logo is set.
+ * Falls back to the default Astra Flow logo if no custom logo is set.
  */
 async function getOrganizationLogoUrl(teamId: string): Promise<string> {
   try {
@@ -61,7 +61,7 @@ export function sendWelcomeEmail(email: string, name: string) {
 
   sendEmail({
     to: [email],
-    subject: "Welcome to Worklenz.",
+    subject: "Welcome to Astra Flow.",
     html: content
   });
 }
@@ -73,7 +73,7 @@ export function sendNewSubscriberNotification(subscriberEmail: string) {
   content = content.replace("[VAR_EMAIL]", sanitize(subscriberEmail));
 
   sendEmail({
-    subject: "Worklenz - New Subscriber.",
+    subject: "Astra Flow - New Subscriber.",
     html: content
   });
 }
@@ -96,7 +96,7 @@ export async function sendJoinTeamInvitation(myName: string, teamName: string, t
 
   sendEmail({
     to: [toEmail],
-    subject: `${sanitizePlainText(myName)} has invited you to work with ${sanitizePlainText(teamName)} in Worklenz`,
+    subject: `${sanitizePlainText(myName)} has invited you to work with ${sanitizePlainText(teamName)} in Astra Flow`,
     html: content
   });
 }
@@ -121,7 +121,7 @@ export async function sendRegisterAndJoinTeamInvitation(myName: string, userName
 
   sendEmail({
     to: [toEmail],
-    subject: `${sanitizePlainText(myName)} has invited you to work with ${sanitizePlainText(teamName)} in Worklenz`,
+    subject: `${sanitizePlainText(myName)} has invited you to work with ${sanitizePlainText(teamName)} in Astra Flow`,
     html: content
   });
 }
@@ -138,7 +138,7 @@ export async function sendResetEmail(toEmail: string, user_id: string, hash: str
 
   await sendEmail({
     to: [toEmail],
-    subject: "Set or reset your password on Worklenz.",
+    subject: "Set or reset your password on Astra Flow.",
     html: content
   });
 }
@@ -150,7 +150,7 @@ export function sendResetSuccessEmail(toEmail: string) {
 
   sendEmail({
     to: [toEmail],
-    subject: "Your Worklenz password was updated.",
+    subject: "Your Astra Flow password was updated.",
     html: content
   });
 }

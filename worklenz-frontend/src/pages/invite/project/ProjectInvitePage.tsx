@@ -213,7 +213,7 @@ const ProjectInvitePage: React.FC = () => {
             <Paragraph type="secondary" style={{ fontSize: 12, marginTop: 20 }}>
               {t('byJoiningTermsText')}{' '}
               <a
-                href="https://worklenz.com/terms/"
+                href="https://astraconnect.io/terms"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="invite-terms-link"
@@ -222,7 +222,7 @@ const ProjectInvitePage: React.FC = () => {
               </a>{' '}
               {t('andText')}{' '}
               <a
-                href="https://worklenz.com/privacy/"
+                href="https://astraconnect.io/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="invite-terms-link"
@@ -286,7 +286,7 @@ const ProjectInvitePage: React.FC = () => {
     >
       <div className="invite-header">
         <div className="invite-logo">
-          <img src={isDarkMode ? logoDark : logo} alt="Worklenz" style={{ height: 26 }} />
+          <img src={isDarkMode ? logoDark : logo} alt="Astra Flow" style={{ height: 26 }} />
         </div>
       </div>
 

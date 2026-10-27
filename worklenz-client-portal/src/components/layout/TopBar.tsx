@@ -62,11 +62,11 @@ export const TopBar = ({ onOpenMenu }: TopBarProps) => {
   const projectMatch = useMatch('/projects/:projectId/*');
 
   const logoUrl = settingsData?.body?.logo_url ?? null;
-  // The operator's logo wins; with no logo the Worklenz logo shows. The title beside it is always the
+  // The operator's logo wins; with no logo the Astra Flow logo shows. The title beside it is always the
   // common name, like Jira and Monday do: the operator's Portal Title is shown in the portal switcher only.
   const title = t('app.name', { defaultValue: 'Client Portal' });
   const isDark = currentTheme === 'dark';
-  const defaultTeamName = t('app.defaultPortalName', { defaultValue: 'Worklenz Client Portal' });
+  const defaultTeamName = t('app.defaultPortalName', { defaultValue: 'Astra Flow Client Portal' });
   const inProject = Boolean(projectMatch?.params.projectId);
   const [menuOpen, setMenuOpen] = useState(false);
   const keepMenuOpenRef = useRef(false);
@@ -211,15 +211,15 @@ export const TopBar = ({ onOpenMenu }: TopBarProps) => {
         )}
         <Link to="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, textDecoration: 'none' }}>
           {isBrandingLoading ? (
-            // Hold the space while the branding loads, so Worklenz's logo does not flash before the operator's.
+            // Hold the space while the branding loads, so Astra Flow's logo does not flash before the operator's.
             <span aria-hidden style={{ width: 120, height: 24, borderRadius: token.borderRadius, background: token.colorFillSecondary }} />
           ) : logoUrl ? (
             <img src={logoUrl} alt="" style={{ height: 28, maxWidth: 120, objectFit: 'contain' }} />
           ) : (
-            // No logo uploaded yet: Worklenz's own, beside the Portal Title.
+            // No logo uploaded yet: Astra Flow's own, beside the Portal Title.
             <img
               src={isDark ? worklenzLogoDark : worklenzLogoLight}
-              alt={t('app.worklenz', { defaultValue: 'Worklenz' })}
+              alt={t('app.worklenz', { defaultValue: 'Astra Flow' })}
               style={{ height: 24, width: 'auto', flexShrink: 0 }}
             />
           )}

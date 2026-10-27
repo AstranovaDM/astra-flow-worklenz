@@ -72,12 +72,12 @@ const HELP_QUICK_LINKS: HelpQuickLink[] = [
   {
     label: 'Documentation',
     icon: <ReadOutlined />,
-    onClick: () => window.open('https://docs.worklenz.com/en/start/introduction/', '_blank'),
+    onClick: () => window.open('https://astraconnect.io/docs', '_blank'),
   },
   {
     label: 'Support Email',
     icon: <MailOutlined />,
-    onClick: () => { window.location.href = 'mailto:support@worklenz.com'; },
+    onClick: () => { window.location.href = 'mailto:support@astraconnect.io'; },
   },
   {
     label: 'Live Chat',
@@ -134,8 +134,9 @@ const HomeLeftSidebar: React.FC<HomeLeftSidebarProps> = ({ activeView, onViewCha
     return diff > 0 ? diff : 0;
   }, [isTrial, currentSession]);
 
-  const iconColor    = isDark ? 'rgba(255,255,255,.45)' : 'rgba(0,0,0,.45)';
-  const borderColor  = isDark ? 'rgba(255,255,255,.07)'  : 'rgba(0,0,0,.08)';
+  // Navy rail uses light iconography in both app themes.
+  const iconColor    = 'rgba(255,255,255,.45)';
+  const borderColor  = 'rgba(255,255,255,.07)';
   const dividerColor = isDark ? NAV_RAIL_DIVIDER_DARK : NAV_RAIL_DIVIDER_LIGHT;
   const bgColor      = isDark ? NAV_RAIL_BG_DARK : NAV_RAIL_BG_LIGHT;
 
@@ -157,7 +158,7 @@ const HomeLeftSidebar: React.FC<HomeLeftSidebarProps> = ({ activeView, onViewCha
       <NavRail
         resolved={resolved}
         activeKey={activeView}
-        isDark={isDark}
+        isDark={true}
         onSelect={key => onViewChange(key as HomeView)}
         isPinned={isPinned}
         onPin={pin}

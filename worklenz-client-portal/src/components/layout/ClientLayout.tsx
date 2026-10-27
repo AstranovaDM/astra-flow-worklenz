@@ -140,12 +140,12 @@ const ClientLayout: React.FC = () => {
           <footer style={{ marginTop: 24, textAlign: 'right', fontSize: 12, color: token.colorTextSecondary }}>
             {t('app.poweredBy', { defaultValue: 'Powered by' })}{' '}
             <a
-              href="https://worklenz.com"
+              href="https://astraconnect.io"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'inherit', fontWeight: 600 }}
             >
-              {t('app.worklenz', { defaultValue: 'Worklenz' })}
+              {t('app.worklenz', { defaultValue: 'Astra Flow' })}
             </a>
           </footer>
         )}

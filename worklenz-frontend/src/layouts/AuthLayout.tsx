@@ -42,7 +42,7 @@ const AuthLayout = () => {
       {showFixedLogo && (
         <img
           src={logoSrc}
-          alt="Worklenz"
+          alt="Astra Flow"
           style={{
             position: 'fixed',
             top: 24,

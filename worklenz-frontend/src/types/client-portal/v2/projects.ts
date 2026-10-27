@@ -3,7 +3,7 @@ import type { PagedList, PagedParams, PortalVisibility, StaffRef } from './commo
 
 // ─── Portal Projects ────────────────────────────────────────────────────────
 
-/** Client-facing project status, separate from the internal WorkLenz status. */
+/** Client-facing project status, separate from the internal Astra Flow status. */
 export type ClientProjectStatus = 'on_track' | 'at_risk' | 'on_hold' | 'completed';
 
 export const PROJECT_PHASES = ['Discovery', 'Design', 'Development', 'UAT', 'Deployment'] as const;
@@ -12,7 +12,7 @@ export type ProjectPhase = (typeof PROJECT_PHASES)[number];
 /** `worklenz` follows task completion (read-only); `manual` is a 0-100 value staff set. */
 export type ProgressSource = 'worklenz' | 'manual';
 
-/** `worklenz` shows the WorkLenz project's phases as milestones (read-only); `manual` shows the ones staff add. */
+/** `worklenz` shows the Astra Flow project's phases as milestones (read-only); `manual` shows the ones staff add. */
 export type MilestoneSource = 'worklenz' | 'manual';
 
 export interface PortalProject {
@@ -66,12 +66,12 @@ export interface ProjectOverview {
   phase: ProjectPhase | null;
   progress_source: ProgressSource;
   milestone_source: MilestoneSource;
-  /** The computed WorkLenz progress, shown read-only when `progress_source` is `worklenz`. */
+  /** The computed Astra Flow progress, shown read-only when `progress_source` is `worklenz`. */
   worklenz_progress: number;
   manual_progress: number | null;
   start_date: string | null;
   expected_completion: string | null;
-  /** The WorkLenz project's own dates, read-only while progress follows WorkLenz. */
+  /** The Astra Flow project's own dates, read-only while progress follows Astra Flow. */
   worklenz_start_date: string | null;
   worklenz_end_date: string | null;
   primary_contact_id: string | null;
@@ -148,7 +148,7 @@ export interface Milestone {
   /** Staff-only: how many linked items the client can actually see. */
   linked_visible_count: number;
   linked_total_count: number;
-  /** True for a WorkLenz phase shown as a milestone: it cannot be edited, shared or deleted here. */
+  /** True for a Astra Flow phase shown as a milestone: it cannot be edited, shared or deleted here. */
   read_only?: boolean;
 }
 

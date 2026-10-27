@@ -114,7 +114,7 @@ export const parseCsvText = (
   return { fields, rows };
 };
 
-// Recognized header spellings for each Worklenz field, used to auto-map CSV columns
+// Recognized header spellings for each Astra Flow field, used to auto-map CSV columns
 // on upload (e.g. Linear/Jira/Asana exports). Keyed by the same `value` used in
 // worklenzFieldOptions in ImportSourceModal.tsx. Keep aliases lowercase with no
 // punctuation — column names are normalized the same way before matching.
@@ -144,7 +144,7 @@ export const normalizeCsvHeader = (value: string): string =>
     .replace(/[_-]+/g, ' ')
     .replace(/\s+/g, ' ');
 
-/** Maps CSV column headers to Worklenz field values by exact alias match, e.g.
+/** Maps CSV column headers to Astra Flow field values by exact alias match, e.g.
  * "Title" -> "key", "Due Date" -> "dueDate". Each target field is used at most
  * once; unrecognized columns are left unmapped for the user to assign manually
  * (or leave as a custom field). */

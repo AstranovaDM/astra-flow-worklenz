@@ -918,7 +918,7 @@ const UpgradePlans = () => {
                       trackAppSumoEvent(AppSumoUpsellEvents.TALK_TO_SALES_CLICKED);
                     }
                     window.open(
-                      'mailto:info@worklenz.com?subject=Enterprise%20Plan%20Inquiry',
+                      'mailto:support@astraconnect.io?subject=Enterprise%20Plan%20Inquiry',
                       '_blank'
                     );
                   }}
@@ -979,14 +979,14 @@ const UpgradePlans = () => {
                   <PictureOutlined style={{ fontSize: 28 }} />
                   <Typography.Title level={3} style={{ margin: 0 }}>
                     {t('admin-center/overview:customLogoUpgradeModalHeadline', {
-                      defaultValue: 'Make Worklenz yours',
+                      defaultValue: 'Make Astra Flow yours',
                     })}
                   </Typography.Title>
                 </Flex>
                 <Typography.Text type="secondary">
                   {t('admin-center/overview:customLogoUpgradeModalSubCopy', {
                     defaultValue:
-                      'Upgrade to Business to upload your organization logo. Your logo will replace the Worklenz logo everywhere in the app and in all system emails sent to your team and clients.',
+                      'Upgrade to Business to upload your organization logo. Your logo will replace the Astra Flow logo everywhere in the app and in all system emails sent to your team and clients.',
                   })}
                 </Typography.Text>
                 <Flex vertical gap={6}>

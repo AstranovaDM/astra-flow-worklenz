@@ -35,7 +35,7 @@ function getEmailConfiguration(): EmailConfiguration {
     // used to create a transport.
     provider: getEmailProvider() || "ses",
     // Backwards-compatible default for existing SES installations.
-    from: process.env.EMAIL_FROM?.trim() || "Worklenz <noreply@worklenz.com>",
+    from: process.env.EMAIL_FROM?.trim() || "Astra Flow <noreply@astraconnect.io>",
   };
 }
 

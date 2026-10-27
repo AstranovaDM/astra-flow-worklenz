@@ -1,4 +1,5 @@
 import { CSSProperties, Fragment, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   BookOutlined,
@@ -8,6 +9,7 @@ import {
   Divider,
   ExportOutlined,
   FacebookOutlined,
+  FileTextOutlined,
   Flex,
   GithubOutlined,
   HistoryOutlined,
@@ -99,6 +101,7 @@ export const HelpSettings = () => {
                   <li key={row.id}>
                     {row.kind === 'link' && <HelpLinkRow row={row} onOpen={trackItemClick} />}
                     {row.kind === 'email' && <HelpEmailRow row={row} onOpen={trackItemClick} />}
+                    {row.kind === 'route' && <HelpRouteRow row={row} onOpen={trackItemClick} />}
                     {row.kind === 'release-notes' && <ReleaseNotesRow onOpen={trackItemClick} />}
                     {row.kind === 'about' && <AboutBlock />}
                   </li>
@@ -179,6 +182,27 @@ const HelpEmailRow = ({ row, onOpen }: HelpEmailRowProps) => {
       href={row.url}
       aria-label={`${label} (${opensEmailApp})`}
       onClick={() => onOpen(row.id)}
+      style={ROW_BUTTON_STYLE}
+    >
+      <HelpRowContent icon={row.icon} label={label} />
+    </Button>
+  );
+};
+
+const HelpRouteRow = ({ row, onOpen }: HelpRouteRowProps) => {
+  const navigate = useNavigate();
+  const { t } = useTranslation('settings/help');
+  const label = t(row.labelKey, { defaultValue: row.defaultLabel });
+
+  return (
+    <Button
+      type="text"
+      block
+      aria-label={label}
+      onClick={() => {
+        onOpen(row.id);
+        navigate(row.path);
+      }}
       style={ROW_BUTTON_STYLE}
     >
       <HelpRowContent icon={row.icon} label={label} />
@@ -401,6 +425,14 @@ const HELP_GROUPS: HelpGroup[] = [
         icon: SafetyCertificateOutlined,
         url: WORKLENZ_PRIVACY_POLICY_URL,
       },
+      {
+        kind: 'route',
+        id: 'legal_notices',
+        labelKey: 'items.legalNotices',
+        defaultLabel: 'Legal notices',
+        icon: FileTextOutlined,
+        path: '/worklenz/settings/legal-notices',
+      },
       { kind: 'about', id: 'about' },
     ],
   },
@@ -419,6 +451,7 @@ export type HelpItemId =
   | 'linkedin'
   | 'x'
   | 'privacy_policy'
+  | 'legal_notices'
   | 'email_support';
 
 type HelpIcon = typeof BookOutlined;
@@ -441,9 +474,19 @@ interface IHelpEmailRow {
   url: string;
 }
 
+interface IHelpRouteRow {
+  kind: 'route';
+  id: 'legal_notices';
+  labelKey: string;
+  defaultLabel: string;
+  icon: HelpIcon;
+  path: string;
+}
+
 type HelpRow =
   | IHelpLinkRow
   | IHelpEmailRow
+  | IHelpRouteRow
   | { kind: 'release-notes'; id: 'release_notes' }
   | { kind: 'about'; id: 'about' };
 
@@ -466,6 +509,11 @@ interface HelpLinkRowProps {
 
 interface HelpEmailRowProps {
   row: IHelpEmailRow;
+  onOpen: (item: HelpItemId) => void;
+}
+
+interface HelpRouteRowProps {
+  row: IHelpRouteRow;
   onOpen: (item: HelpItemId) => void;
 }
 

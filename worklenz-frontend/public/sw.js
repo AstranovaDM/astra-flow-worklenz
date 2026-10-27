@@ -1,4 +1,4 @@
-// Worklenz Service Worker
+// Astra Flow Service Worker
 // Provides offline functionality, caching, and performance improvements
 
 // Extract build timestamp from current URL or use current time as fallback
@@ -366,7 +366,7 @@ self.addEventListener('push', event => {
     },
   };
 
-  event.waitUntil(self.registration.showNotification('Worklenz', options));
+  event.waitUntil(self.registration.showNotification('Astra Flow', options));
 });
 
 // Handle notification click events

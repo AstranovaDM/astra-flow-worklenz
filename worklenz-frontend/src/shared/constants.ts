@@ -7,16 +7,14 @@ import {
 } from '@/shared/antd-imports';
 import dayjs from 'dayjs';
 import { DatePresetKey, getDatePresetRange } from '@/utils/date-presets';
+import astraFlowLockupLight from '@/assets/images/astra-flow-lockup.png';
+import astraFlowLockupDark from '@/assets/images/astra-flow-lockup-dark.png';
 
-// logos
-export const LOGO_LIGHT =
-  'https://s3.us-west-2.amazonaws.com/worklenz.com/assets/worklenz-light-mode.png';
-export const LOGO_DARK =
-  'https://s3.us-west-2.amazonaws.com/worklenz.com/assets/worklenz-dark-mode.png';
-export const XMAS_LOGO_LIGHT =
-  'https://s3.us-west-2.amazonaws.com/worklenz.com/assets/worklenz-xmas-light.webp';
-export const XMAS_LOGO_DARK =
-  'https://s3.us-west-2.amazonaws.com/worklenz.com/assets/worklenz-xmas-dark.webp';
+// logos — local Astra Flow lockups (light + reversed for dark backgrounds)
+export const LOGO_LIGHT = astraFlowLockupLight;
+export const LOGO_DARK = astraFlowLockupDark;
+export const XMAS_LOGO_LIGHT = astraFlowLockupLight;
+export const XMAS_LOGO_DARK = astraFlowLockupDark;
 
 export const avatarNamesMap: { [x: string]: string } = {
   A: '#154c9b',

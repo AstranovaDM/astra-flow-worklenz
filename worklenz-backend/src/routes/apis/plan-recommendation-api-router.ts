@@ -17,8 +17,8 @@ planRecommendationApiRouter.get("/migration-info", (req, res) => {
       customPlan: 'Flexible'
     },
     contactInfo: {
-      support: 'support@worklenz.com',
-      migration: 'migration@worklenz.com'
+      support: 'support@astraconnect.io',
+      migration: 'migration@astraconnect.io'
     }
   });
 });

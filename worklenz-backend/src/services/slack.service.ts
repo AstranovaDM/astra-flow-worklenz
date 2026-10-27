@@ -764,7 +764,7 @@ export class SlackService {
 
       const messagePayload = {
         channel: config.channel_id,
-        text: (message.text as string) || "Worklenz Notification",
+        text: (message.text as string) || "Astra Flow Notification",
         blocks: (message.blocks as any[]) || undefined,
         ...message,
       };

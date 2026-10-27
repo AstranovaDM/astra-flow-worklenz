@@ -96,13 +96,16 @@ const SimpleRailLayout: React.FC<SimpleRailLayoutProps> = memo(({ surfaceKey, co
           flexShrink: 0,
           background: railBg,
           height: '100%',
-          overflow: 'auto',
+          overflow: 'hidden',
+          position: 'sticky',
+          top: 0,
+          alignSelf: 'flex-start',
         }}
       >
         <NavRail
           resolved={resolved}
           activeKey={activeKey}
-          isDark={isDark}
+          isDark={true}
           onSelect={handleSelect}
           isPinned={isPinned}
           onPin={pin}

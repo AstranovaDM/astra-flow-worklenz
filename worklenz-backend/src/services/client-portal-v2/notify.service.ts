@@ -86,7 +86,7 @@ const buildEmailHtml = (title: string, body: string, link: string) =>
   `<div style="font-family:Arial,sans-serif;font-size:14px;color:#222">
      <p style="font-weight:bold;margin:0 0 8px">${escapeHtml(title)}</p>
      <p style="margin:0 0 16px">${escapeHtml(body)}</p>
-     <p style="margin:0"><a href="${escapeHtml(link)}">Open in Worklenz</a></p>
+     <p style="margin:0"><a href="${escapeHtml(link)}">Open in Astra Flow</a></p>
    </div>`;
 
 /**

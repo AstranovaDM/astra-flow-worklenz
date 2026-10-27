@@ -15,7 +15,7 @@
   },
   "notConfigured": {
     "title": "Nie skonfigurowano",
-    "description": "Aplikacja GitHub nie została skonfigurowana dla tej instalacji Worklenz. Poproś administratora o jej konfigurację."
+    "description": "Aplikacja GitHub nie została skonfigurowana dla tej instalacji Astra Flow. Poproś administratora o jej konfigurację."
   },
   "actions": {
     "retry": "Spróbuj ponownie",
@@ -37,7 +37,7 @@
   "errors": {
     "invalidState": "Żądanie połączenia wygasło. Spróbuj ponownie.",
     "forbidden": "Potrzebujesz dostępu do tej instalacji GitHub i musisz być właścicielem lub administratorem zespołu.",
-    "alreadyConnected": "To konto GitHub jest już połączone z innym zespołem Worklenz.",
+    "alreadyConnected": "To konto GitHub jest już połączone z innym zespołem Astra Flow.",
     "teamAlreadyConnected": "Ten zespół jest już połączony z innym kontem GitHub. Najpierw je odłącz.",
     "connectFailed": "Nie udało się połączyć z GitHub. Spróbuj ponownie.",
     "loadFailed": "Nie udało się wczytać statusu GitHub.",
@@ -104,9 +104,18 @@
       "cancel": "Anuluj",
       "success": "Powiązanie usunięte.",
       "failed": "Nie udało się usunąć powiązania.",
-      "branch": { "title": "Usunąć gałąź z tego zadania?", "description": "{{name}} nie będzie już wyświetlana w tym zadaniu. Gałąź nie zostanie usunięta w GitHub." },
-      "pullRequest": { "title": "Usunąć pull request z tego zadania?", "description": "{{name}} nie będzie już wyświetlany w tym zadaniu. Pull request nie zostanie zmieniony w GitHub." },
-      "commit": { "title": "Usunąć commit z tego zadania?", "description": "{{name}} nie będzie już wyświetlany w tym zadaniu. Commit nie zostanie zmieniony w GitHub." }
+      "branch": {
+        "title": "Usunąć gałąź z tego zadania?",
+        "description": "{{name}} nie będzie już wyświetlana w tym zadaniu. Gałąź nie zostanie usunięta w GitHub."
+      },
+      "pullRequest": {
+        "title": "Usunąć pull request z tego zadania?",
+        "description": "{{name}} nie będzie już wyświetlany w tym zadaniu. Pull request nie zostanie zmieniony w GitHub."
+      },
+      "commit": {
+        "title": "Usunąć commit z tego zadania?",
+        "description": "{{name}} nie będzie już wyświetlany w tym zadaniu. Commit nie zostanie zmieniony w GitHub."
+      }
     },
     "createBranch": {
       "button": "Utwórz gałąź",

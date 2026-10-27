@@ -59,7 +59,10 @@ const ReportingLayout = () => {
             flexShrink: 0,
             background: railBg,
             height: '100%',
-            overflow: 'auto',
+            overflow: 'hidden',
+            position: 'sticky',
+            top: 0,
+            alignSelf: 'flex-start',
           }}
         >
           <ReportingSider />

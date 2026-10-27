@@ -481,7 +481,7 @@ const SignupPage = () => {
         >
           {t('bySigningUpText')}{' '}
           <a
-            href="https://worklenz.com/terms/"
+            href="https://astraconnect.io/terms"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline' }}
@@ -490,7 +490,7 @@ const SignupPage = () => {
           </a>{' '}
           {t('andText')}{' '}
           <a
-            href="https://worklenz.com/privacy/"
+            href="https://astraconnect.io/privacy"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline' }}

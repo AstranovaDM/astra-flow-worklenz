@@ -7,7 +7,7 @@ interface PortalLoaderProps {
   minHeight?: number;
 }
 
-/** Block-level loading state: the same Worklenz logo loader the Home overview cards use. */
+/** Block-level loading state: the same Astra Flow logo loader the Home overview cards use. */
 export const PortalLoader = ({ minHeight = 200 }: PortalLoaderProps) => (
   <div style={{ minHeight, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <WorklenzLogoLoader />
@@ -20,7 +20,7 @@ interface PortalLoadingOverlayProps {
 }
 
 /**
- * Wraps a table/list and covers it with the Worklenz logo loader while `loading` is true.
+ * Wraps a table/list and covers it with the Astra Flow logo loader while `loading` is true.
  * antd's own `loading` prop mis-centers a large custom indicator, so we overlay it ourselves
  * (same approach as the Home recent-projects list).
  */

@@ -68,8 +68,8 @@
     "failed_to_validate_invite": "Nie udało się zweryfikować zaproszenia",
     "network_error": "Błąd sieci. Sprawdź swoje połączenie.",
     "server_error": "Błąd serwera. Spróbuj ponownie później.",
-    "worklenz_account_found_title": "Znaleziono konto Worklenz",
-    "worklenz_account_found_message": "Ten adres e-mail jest już zarejestrowany na koncie Worklenz. Aby zarejestrować się w portalu klienta, użyj istniejącego hasła do konta Worklenz."
+    "worklenz_account_found_title": "Znaleziono konto Astra Flow",
+    "worklenz_account_found_message": "Ten adres e-mail jest już zarejestrowany na koncie Astra Flow. Aby zarejestrować się w portalu klienta, użyj istniejącego hasła do konta Astra Flow."
   },
   "dashboard": {
     "title": "Przegląd",

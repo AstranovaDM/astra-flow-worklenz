@@ -199,8 +199,8 @@
     "failed_to_validate_invite": "验证邀请失败",
     "network_error": "网络错误。请检查您的连接。",
     "server_error": "服务器错误。请稍后重试。",
-    "worklenz_account_found_title": "发现 Worklenz 账户",
-    "worklenz_account_found_message": "该邮箱已注册 Worklenz 账户。请使用您现有的 Worklenz 账户密码注册客户门户。"
+    "worklenz_account_found_title": "发现 Astra Flow 账户",
+    "worklenz_account_found_message": "该邮箱已注册 Astra Flow 账户。请使用您现有的 Astra Flow 账户密码注册客户门户。"
   },
   "discussions": {
     "title": "讨论",

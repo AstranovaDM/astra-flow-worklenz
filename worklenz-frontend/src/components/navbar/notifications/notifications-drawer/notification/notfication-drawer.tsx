@@ -91,7 +91,7 @@ const NotificationDrawer = () => {
 
   const createPush = (message: string, title: string, teamId: string | null, url?: string) => {
     if (Notification.permission === 'granted' && showBrowserPush) {
-      const img = 'https://worklenz.com/assets/icons/icon-128x128.png';
+      const img = 'https://astraconnect.io/assets/icons/icon-128x128.png';
       const notification = new Notification(title, {
         body: stripHtmlTags(message),
         icon: img,
@@ -123,7 +123,7 @@ const NotificationDrawer = () => {
     dispatch(fetchUnreadCount()); // Fetch updated unread count
 
     if (isPushEnabled()) {
-      const title = notification.team ? `${notification.team} | Worklenz` : 'Worklenz';
+      const title = notification.team ? `${notification.team} | Astra Flow` : 'Astra Flow';
       let url = notification.url;
       if (url && notification.params && Object.keys(notification.params).length) {
         const q = toQueryString(notification.params);
@@ -151,7 +151,7 @@ const NotificationDrawer = () => {
     if (isPushEnabled()) {
       createPush(
         notification.message,
-        notification.team || 'Worklenz',
+        notification.team || 'Astra Flow',
         notification.team_id || null
       );
     }
@@ -183,7 +183,7 @@ const NotificationDrawer = () => {
     };
 
     if (isPushEnabled()) {
-      createPush(notification.message, 'Worklenz', notification.team_id || null);
+      createPush(notification.message, 'Astra Flow', notification.team_id || null);
     }
 
     showNotification(notification);

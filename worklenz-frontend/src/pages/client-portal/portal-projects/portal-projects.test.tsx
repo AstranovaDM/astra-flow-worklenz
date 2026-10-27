@@ -43,7 +43,7 @@ const trigger =
 vi.mock('@/api/client-portal/portal-projects-api', () => ({
   useSetPortalProjectPortalMutation: () => [trigger(state.setPortal), { isLoading: false }],
   useGetProjectMilestonesQuery: () => ({ data: { body: state.milestones }, isLoading: false, isError: false, refetch: vi.fn() }),
-  // The Milestones tab reads the project's milestone source (manual milestones vs. Worklenz phases).
+  // The Milestones tab reads the project's milestone source (manual milestones vs. Astra Flow phases).
   useGetProjectOverviewQuery: () => ({
     data: { body: { milestone_source: state.milestoneSource } },
     isLoading: false,

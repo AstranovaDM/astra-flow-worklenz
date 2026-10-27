@@ -15,7 +15,7 @@
   },
   "notConfigured": {
     "title": "Non configuré",
-    "description": "L’application GitHub n’a pas été configurée pour cette installation de Worklenz. Demandez à votre administrateur de la configurer."
+    "description": "L’application GitHub n’a pas été configurée pour cette installation de Astra Flow. Demandez à votre administrateur de la configurer."
   },
   "actions": {
     "retry": "Réessayer",
@@ -37,7 +37,7 @@
   "errors": {
     "invalidState": "La demande de connexion a expiré. Veuillez réessayer.",
     "forbidden": "Vous devez avoir accès à cette installation GitHub et être propriétaire ou administrateur de l’équipe.",
-    "alreadyConnected": "Ce compte GitHub est déjà connecté à une autre équipe Worklenz.",
+    "alreadyConnected": "Ce compte GitHub est déjà connecté à une autre équipe Astra Flow.",
     "teamAlreadyConnected": "Cette équipe est déjà connectée à un autre compte GitHub. Déconnectez-le d’abord.",
     "connectFailed": "Impossible de connecter GitHub. Veuillez réessayer.",
     "loadFailed": "Impossible de charger l’état de GitHub.",
@@ -104,9 +104,18 @@
       "cancel": "Annuler",
       "success": "Lien retiré.",
       "failed": "Impossible de retirer le lien.",
-      "branch": { "title": "Retirer la branche de cette tâche ?", "description": "{{name}} ne sera plus affichée sur cette tâche. La branche n’est pas supprimée sur GitHub." },
-      "pullRequest": { "title": "Retirer la pull request de cette tâche ?", "description": "{{name}} ne sera plus affichée sur cette tâche. La pull request n’est pas modifiée sur GitHub." },
-      "commit": { "title": "Retirer le commit de cette tâche ?", "description": "{{name}} ne sera plus affiché sur cette tâche. Le commit n’est pas modifié sur GitHub." }
+      "branch": {
+        "title": "Retirer la branche de cette tâche ?",
+        "description": "{{name}} ne sera plus affichée sur cette tâche. La branche n’est pas supprimée sur GitHub."
+      },
+      "pullRequest": {
+        "title": "Retirer la pull request de cette tâche ?",
+        "description": "{{name}} ne sera plus affichée sur cette tâche. La pull request n’est pas modifiée sur GitHub."
+      },
+      "commit": {
+        "title": "Retirer le commit de cette tâche ?",
+        "description": "{{name}} ne sera plus affiché sur cette tâche. Le commit n’est pas modifié sur GitHub."
+      }
     },
     "createBranch": {
       "button": "Créer une branche",

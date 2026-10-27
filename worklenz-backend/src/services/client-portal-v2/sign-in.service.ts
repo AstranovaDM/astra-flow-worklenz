@@ -121,7 +121,7 @@ export async function findSignInTargets(q: Queryable, email: string): Promise<Si
 
 /**
  * The sign-in email is a fixed template. Nothing a workspace owner controls (team name, contact name) is
- * put in it: the message is sent from Worklenz's own sender to an address the requester only has to type,
+ * put in it: the message is sent from Astra Flow's own sender to an address the requester only has to type,
  * so a custom name would let it be used as a branded phishing or spam relay.
  */
 async function sendCodeEmail(email: string, code: string): Promise<boolean> {
@@ -129,7 +129,7 @@ async function sendCodeEmail(email: string, code: string): Promise<boolean> {
     <div style="font-family:Arial,Helvetica,sans-serif;max-width:480px;margin:0 auto;padding:24px;color:#1f1f1f">
       <h2 style="margin:0 0 16px;font-size:20px">Your sign-in code</h2>
       <p style="margin:0 0 16px;font-size:14px;line-height:1.5">
-        Use this code to sign in to your Worklenz client portal.
+        Use this code to sign in to your Astra Flow client portal.
       </p>
       <p style="margin:0 0 16px;font-size:32px;font-weight:700;letter-spacing:8px">${code}</p>
       <p style="margin:0;font-size:13px;line-height:1.5;color:#595959">

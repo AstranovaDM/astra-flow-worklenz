@@ -73,6 +73,7 @@ const OrganizationCurrencySettings = lazy(
 );
 
 const HelpSettings = lazy(() => import('@/pages/settings/help/help-settings'));
+const LegalNoticesPage = lazy(() => import('@/pages/settings/legal-notices/legal-notices'));
 
 // type of menu item in settings sidebar
 type SettingMenuItem = {
@@ -340,6 +341,18 @@ export const settingsItems: SettingMenuItem[] = [
     groupDefaultValue: 'Help & Support',
     icon: React.createElement(QuestionCircleOutlined),
     element: React.createElement(HelpSettings),
+  },
+  {
+    // Reachable from Help → Legal notices only (not listed in the settings sidebar).
+    key: 'legal-notices',
+    name: 'legal-notices',
+    defaultValue: 'Legal notices',
+    endpoint: 'legal-notices',
+    groupKey: 'help-support',
+    groupDefaultValue: 'Help & Support',
+    icon: React.createElement(QuestionCircleOutlined),
+    element: React.createElement(LegalNoticesPage),
+    showInSidebar: false,
   },
   // Danger zone - always at the bottom
   {

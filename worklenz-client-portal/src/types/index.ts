@@ -220,7 +220,7 @@ export interface ClientSettings {
   primary_color?: string | null;
   portal_title?: string | null;
   portal_theme?: 'light' | 'dark';
-  /** Org-controlled "Powered by Worklenz" footer; shown unless explicitly false. */
+  /** Org-controlled "Powered by Astra Flow" footer; shown unless explicitly false. */
   show_powered_by?: boolean;
   visible_project_plan?: boolean;
   visible_gantt_timeline?: boolean;

@@ -9,7 +9,7 @@ describe('Settings > Help', () => {
     vi.stubEnv('VITE_APP_LAST_UPDATED', '2026-10-08');
     renderPortal(<SettingsPage />, { path: '/settings/:section', route: '/settings/help' });
 
-    expect(await screen.findByRole('link', { name: /Documentation/ })).toHaveAttribute('href', expect.stringContaining('docs.worklenz.com'));
+    expect(await screen.findByRole('link', { name: /Documentation/ })).toHaveAttribute('href', expect.stringContaining('astraconnect.io'));
     expect(screen.getByRole('link', { name: /Email support/ })).toHaveAttribute('href', expect.stringMatching(/^mailto:/));
     expect(screen.getByRole('link', { name: /Privacy policy/ })).toBeInTheDocument();
     expect(screen.queryByText('Release notes')).not.toBeInTheDocument();

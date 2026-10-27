@@ -72,7 +72,7 @@ const InviteTeamMembers = () => {
   const inviteRestrictedMessage = t('license-expired-subtitle', {
     ns: 'common',
     defaultValue:
-      'Your Worklenz subscription has ended. Please renew to continue enjoying all features.',
+      'Your Astra Flow subscription has ended. Please renew to continue enjoying all features.',
   });
   const currentRole = getSessionRoleName(currentSession);
   const translatedRoleOptions = [

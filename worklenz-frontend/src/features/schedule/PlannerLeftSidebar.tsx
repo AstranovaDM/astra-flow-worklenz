@@ -61,13 +61,13 @@ const HELP_QUICK_LINKS: HelpQuickLink[] = [
   {
     label: 'Documentation',
     icon: <ReadOutlined />,
-    onClick: () => window.open('https://docs.worklenz.com/en/start/introduction/', '_blank'),
+    onClick: () => window.open('https://astraconnect.io/docs', '_blank'),
   },
   {
     label: 'Support Email',
     icon: <MailOutlined />,
     onClick: () => {
-      window.location.href = 'mailto:support@worklenz.com';
+      window.location.href = 'mailto:support@astraconnect.io';
     },
   },
   {
@@ -107,9 +107,10 @@ const PlannerLeftSidebar: React.FC<PlannerLeftSidebarProps> = ({ activeView, onV
   const { token } = theme.useToken();
   const isDark = themeMode === 'dark';
   const dividerColor = isDark ? NAV_RAIL_DIVIDER_DARK : NAV_RAIL_DIVIDER_LIGHT;
-  const borderColor = isDark ? 'rgba(255,255,255,.07)' : 'rgba(0,0,0,.08)';
+  const borderColor = 'rgba(255,255,255,.07)';
   const bgColor = isDark ? NAV_RAIL_BG_DARK : NAV_RAIL_BG_LIGHT;
-  const iconColor = isDark ? 'rgba(255,255,255,.45)' : 'rgba(0,0,0,.45)';
+  // Navy rail uses light iconography in both app themes.
+  const iconColor = 'rgba(255,255,255,.45)';
   // antd's default Tooltip renders a dark chip regardless of app theme, which read as a
   // mismatched box against this rail's light-mode chrome — same fix as NavRailItem uses
   // for the nav items themselves, applied here for the footer's own Tooltips.
@@ -159,7 +160,7 @@ const PlannerLeftSidebar: React.FC<PlannerLeftSidebarProps> = ({ activeView, onV
       <NavRail
         resolved={resolved}
         activeKey={activeView}
-        isDark={isDark}
+        isDark={true}
         onSelect={key => onViewChange(key as PlannerView)}
         isPinned={isPinned}
         onPin={pin}

@@ -15,7 +15,7 @@
   },
   "notConfigured": {
     "title": "No configurado",
-    "description": "La aplicación de GitHub no se ha configurado para esta instalación de Worklenz. Pide a tu administrador que la configure."
+    "description": "La aplicación de GitHub no se ha configurado para esta instalación de Astra Flow. Pide a tu administrador que la configure."
   },
   "actions": {
     "retry": "Reintentar",
@@ -37,7 +37,7 @@
   "errors": {
     "invalidState": "La solicitud de conexión expiró. Inténtalo de nuevo.",
     "forbidden": "Necesitas acceso a esta instalación de GitHub y ser propietario o administrador del equipo.",
-    "alreadyConnected": "Esta cuenta de GitHub ya está conectada a otro equipo de Worklenz.",
+    "alreadyConnected": "Esta cuenta de GitHub ya está conectada a otro equipo de Astra Flow.",
     "teamAlreadyConnected": "Este equipo ya está conectado a otra cuenta de GitHub. Desconéctala primero.",
     "connectFailed": "No se pudo conectar GitHub. Inténtalo de nuevo.",
     "loadFailed": "No se pudo cargar el estado de GitHub.",
@@ -104,9 +104,18 @@
       "cancel": "Cancelar",
       "success": "Vínculo eliminado.",
       "failed": "No se pudo quitar el vínculo.",
-      "branch": { "title": "¿Quitar la rama de esta tarea?", "description": "{{name}} ya no se mostrará en esta tarea. La rama no se elimina en GitHub." },
-      "pullRequest": { "title": "¿Quitar el pull request de esta tarea?", "description": "{{name}} ya no se mostrará en esta tarea. El pull request no se modifica en GitHub." },
-      "commit": { "title": "¿Quitar el commit de esta tarea?", "description": "{{name}} ya no se mostrará en esta tarea. El commit no se modifica en GitHub." }
+      "branch": {
+        "title": "¿Quitar la rama de esta tarea?",
+        "description": "{{name}} ya no se mostrará en esta tarea. La rama no se elimina en GitHub."
+      },
+      "pullRequest": {
+        "title": "¿Quitar el pull request de esta tarea?",
+        "description": "{{name}} ya no se mostrará en esta tarea. El pull request no se modifica en GitHub."
+      },
+      "commit": {
+        "title": "¿Quitar el commit de esta tarea?",
+        "description": "{{name}} ya no se mostrará en esta tarea. El commit no se modifica en GitHub."
+      }
     },
     "createBranch": {
       "button": "Crear rama",

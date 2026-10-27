@@ -20,7 +20,7 @@ import {
 } from '@/features/projects/lookups/projectCategories/projectCategoriesSlice';
 import { IProjectCategoryViewModel } from '@/types/project/projectCategory.types';
 
-// Worklenz color palette - same as Labels
+// Astra Flow color palette - same as Labels
 const WorklenzColorShades = {
   '#154c9b': [
     '#0D2A50',

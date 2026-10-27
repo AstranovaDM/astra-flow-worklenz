@@ -4,7 +4,6 @@
   "signInAnotherAccount": "Sign in with another account",
   "switchToLightMode": "Switch to light mode",
   "switchToDarkMode": "Switch to dark mode",
-
   "stepOrganization": "Organization",
   "stepProject": "Project",
   "stepInviteTeam": "Invite Team",
@@ -13,29 +12,25 @@
   "retry": "Retry",
   "untitledTemplate": "Untitled Template",
   "templatesLoadError": "Failed to load templates",
-
   "organizationStepHeadline": "What's your organization called?",
   "organizationStepSubheading": "This becomes your workspace name. You can change it anytime in Settings.",
   "organizationStepPrefilledNote": "Pre-filled from {{email}}. Feel free to edit it.",
   "organizationNamePlaceholderFromDomain": "e.g. {{org}} Team",
   "organizationNamePlaceholderFromName": "e.g. {{name}}'s Team",
-
   "projectNameInputPlaceholder": "Name your project",
   "popularStartingPoints": "Popular starting points",
   "projectChipWebsiteRedesign": "Website Redesign",
   "projectChipMarketingCampaign": "Marketing Campaign",
   "projectChipProductLaunch": "Product Launch",
   "projectChipClientOnboarding": "Client Onboarding",
-
   "membersStepSubheading": "Add up to 5 teammates. You can always invite more later.",
   "membersStepInfoBanner": "You can always invite more members later from Settings under Team.",
   "teammateEmailPlaceholder": "teammate@company.com",
   "addAnotherLink": "+ Add another",
   "removeMember": "Remove",
-
   "setupYourAccount": "Setup your account.",
   "organizationStepTitle": "Name Your Organization",
-  "organizationStepWelcome": "Welcome to Worklenz!",
+  "organizationStepWelcome": "Welcome to Astra Flow!",
   "organizationStepDescription": "Let's start by setting up your organization. This will be the main workspace for your team.",
   "organizationStepLabel": "Organization name",
   "organizationStepPlaceholder": "e.g. Acme Corporation",
@@ -57,14 +52,11 @@
   "organizationStepCategory4": "Startups",
   "organizationStepSuggestionsNote": "These are just examples to get you started. Choose something that represents your organization.",
   "organizationStepPrivacyNote": "Your organization name is private and only visible to your team members.",
-
   "projectStepTitle": "Create your first project",
   "projectStepLabel": "What project are you working on right now?",
   "projectStepPlaceholder": "e.g. Marketing Plan",
-
   "tasksStepLabel": "Type a few tasks that you are going to do in",
   "tasksStepAddAnother": "Add another",
-
   "emailPlaceholder": "Email address",
   "invalidEmail": "Please enter a valid email address",
   "or": "or",
@@ -81,7 +73,6 @@
   "step3Title": "Invite your team to work with",
   "maxMembers": " (You can invite up to 5 members)",
   "maxTasks": " (You can create up to 5 tasks)",
-
   "membersStepTitle": "Invite your team",
   "membersStepDescription": "Add team members to \"{{organizationName}}\" and start collaborating",
   "memberPlaceholder": "Team member {{index}} - Enter email address",
@@ -89,7 +80,6 @@
   "addAnotherTeamMember": "Add another team member ({{current}}/{{max}})",
   "canInviteLater": "You can always invite team members later",
   "skipStepDescription": "Don't have email addresses ready? No problem! You can skip this step and invite team members from your project dashboard later.",
-
   "orgCategoryTech": "Tech Companies",
   "orgCategoryCreative": "Creative Agencies",
   "orgCategoryConsulting": "Consulting",
@@ -98,15 +88,13 @@
   "namingTip2": "Reflect your industry or values",
   "namingTip3": "Think about future growth",
   "namingTip4": "Make it unique and brandable",
-
   "aboutYouTitle": "Tell us about yourself",
   "aboutYouDescription": "Help us personalize your experience",
   "orgTypeQuestion": "What best describes your organization?",
   "userRoleQuestion": "What's your role?",
-
   "yourNeedsTitle": "What are your main needs?",
   "yourNeedsDescription": "Select all that apply to help us set up your workspace",
-  "yourNeedsQuestion": "How will you primarily use Worklenz?",
+  "yourNeedsQuestion": "How will you primarily use Astra Flow?",
   "useCaseTaskOrg": "Organize and track tasks",
   "useCaseTeamCollab": "Work together seamlessly",
   "useCaseResourceMgmt": "Manage time and resources",
@@ -115,20 +103,17 @@
   "useCaseOther": "Something else",
   "selectedText": "selected",
   "previousToolsQuestion": "What tools have you used before? (Optional)",
-
   "discoveryTitle": "One last thing...",
-  "discoveryDescription": "Help us understand how you discovered Worklenz",
+  "discoveryDescription": "Help us understand how you discovered Astra Flow",
   "discoveryQuestion": "How did you hear about us?",
   "allSetTitle": "You're all set!",
-  "allSetDescription": "Let's create your first project and get started with Worklenz",
+  "allSetDescription": "Let's create your first project and get started with Astra Flow",
   "surveyCompleteTitle": "Thank you!",
-  "surveyCompleteDescription": "Your feedback helps us improve Worklenz for everyone",
+  "surveyCompleteDescription": "Your feedback helps us improve Astra Flow for everyone",
   "aboutYouStepName": "About You",
   "yourNeedsStepName": "Your Needs",
   "discoveryStepName": "Discovery",
-
   "stepProgress": "Step {{step}} of 3: {{title}}",
-
   "projectStepHeader": "Let's set up your first project",
   "projectStepSubheader": "Start blank, or jump-start with a template.",
   "startFromScratch": "Start from scratch",
@@ -142,7 +127,6 @@
   "templatesAvailable": "15+ industry-specific templates available",
   "chooseTemplate": "Choose a template that matches your project type",
   "createProject": "Create Project",
-
   "templateSoftwareDev": "Software Development",
   "templateSoftwareDesc": "Agile sprints, bug tracking, releases",
   "templateMarketing": "Marketing Campaign",
@@ -151,15 +135,12 @@
   "templateConstructionDesc": "Phases, permits, contractors",
   "templateStartup": "Startup Launch",
   "templateStartupDesc": "MVP development, funding, growth",
-
   "tasksStepTitle": "Add your first tasks",
   "tasksStepDescription": "Break down \"{{projectName}}\" into actionable tasks to get started",
   "taskPlaceholder": "Task {{index}} - e.g., What needs to be done?",
   "addAnotherTask": "Add another task ({{current}}/{{max}})",
-
   "surveyStepTitle": "Tell us about yourself",
-  "surveyStepLabel": "Help us personalize your Worklenz experience by answering a few questions.",
-
+  "surveyStepLabel": "Help us personalize your Astra Flow experience by answering a few questions.",
   "organizationType": "What best describes your organization?",
   "organizationTypeFreelancer": "Freelancer",
   "organizationTypeStartup": "Startup",
@@ -167,7 +148,6 @@
   "organizationTypeAgency": "Agency",
   "organizationTypeEnterprise": "Enterprise",
   "organizationTypeOther": "Other",
-
   "userRole": "What is your role?",
   "userRoleFounderCeo": "Founder / CEO",
   "userRoleProjectManager": "Project Manager",
@@ -175,33 +155,28 @@
   "userRoleDesigner": "Designer",
   "userRoleOperations": "Operations",
   "userRoleOther": "Other",
-
-  "mainUseCases": "What will you mainly use Worklenz for?",
+  "mainUseCases": "What will you mainly use Astra Flow for?",
   "mainUseCasesTaskManagement": "Task management",
   "mainUseCasesTeamCollaboration": "Team collaboration",
   "mainUseCasesResourcePlanning": "Resource planning",
   "mainUseCasesClientCommunication": "Client communication & reporting",
   "mainUseCasesTimeTracking": "Time tracking",
   "mainUseCasesOther": "Other",
-
-  "previousTools": "What tool(s) were you using before Worklenz?",
+  "previousTools": "What tool(s) were you using before Astra Flow?",
   "previousToolsPlaceholder": "e.g. Trello, Asana, Monday.com",
-
-  "howHeardAbout": "How did you hear about Worklenz?",
+  "howHeardAbout": "How did you hear about Astra Flow?",
   "howHeardAboutGoogleSearch": "Google Search",
   "howHeardAboutTwitter": "Twitter",
   "howHeardAboutLinkedin": "LinkedIn",
   "howHeardAboutFriendColleague": "A friend or colleague",
   "howHeardAboutBlogArticle": "A blog or article",
   "howHeardAboutOther": "Other",
-
   "aboutYouStepTitle": "Tell us about yourself",
   "aboutYouStepDescription": "Help us personalize your experience",
   "yourNeedsStepTitle": "What are your main needs?",
   "yourNeedsStepDescription": "Select all that apply to help us set up your workspace",
   "selected": "selected",
   "previousToolsLabel": "What tools have you used before? (Optional)",
-
   "roleSuggestions": {
     "designer": "UI/UX, Graphics, Creative",
     "developer": "Frontend, Backend, Full-stack",
@@ -210,7 +185,6 @@
     "sales": "Business Development, Client Relations",
     "operations": "Admin, HR, Finance"
   },
-
   "languages": {
     "en": "English",
     "es": "Español",
@@ -219,21 +193,54 @@
     "alb": "Shqip",
     "zh": "简体中文"
   },
-
   "orgSuggestions": {
-    "tech": ["TechCorp", "DevStudio", "CodeCraft", "PixelForge"],
-    "creative": ["Creative Hub", "Design Studio", "Brand Works", "Visual Arts"],
-    "consulting": ["Strategy Group", "Business Solutions", "Expert Advisors", "Growth Partners"],
-    "startup": ["Innovation Labs", "Future Works", "Venture Co", "Next Gen"]
+    "tech": [
+      "TechCorp",
+      "DevStudio",
+      "CodeCraft",
+      "PixelForge"
+    ],
+    "creative": [
+      "Creative Hub",
+      "Design Studio",
+      "Brand Works",
+      "Visual Arts"
+    ],
+    "consulting": [
+      "Strategy Group",
+      "Business Solutions",
+      "Expert Advisors",
+      "Growth Partners"
+    ],
+    "startup": [
+      "Innovation Labs",
+      "Future Works",
+      "Venture Co",
+      "Next Gen"
+    ]
   },
-
   "projectSuggestions": {
-    "freelancer": ["Client Project", "Portfolio Update", "Personal Brand"],
-    "startup": ["MVP Development", "Product Launch", "Market Research"],
-    "agency": ["Client Campaign", "Brand Strategy", "Website Redesign"],
-    "enterprise": ["System Migration", "Process Optimization", "Team Training"]
+    "freelancer": [
+      "Client Project",
+      "Portfolio Update",
+      "Personal Brand"
+    ],
+    "startup": [
+      "MVP Development",
+      "Product Launch",
+      "Market Research"
+    ],
+    "agency": [
+      "Client Campaign",
+      "Brand Strategy",
+      "Website Redesign"
+    ],
+    "enterprise": [
+      "System Migration",
+      "Process Optimization",
+      "Team Training"
+    ]
   },
-
   "useCaseDescriptions": {
     "taskManagement": "Organize and track tasks",
     "teamCollaboration": "Work together seamlessly",

@@ -26,7 +26,7 @@ interface TasksTabProps {
 
 type TaskFilter = 'all' | PortalVisibility;
 
-/** Tasks stay managed in WorkLenz; here staff decide which ones the client sees, and in what words. */
+/** Tasks stay managed in Astra Flow; here staff decide which ones the client sees, and in what words. */
 export const TasksTab = ({ project }: TasksTabProps) => {
   const { t, i18n } = useTranslation('client-portal-v2-projects');
   const { token } = theme.useToken();
@@ -163,7 +163,7 @@ export const TasksTab = ({ project }: TasksTabProps) => {
       </Flex>
       <Typography.Paragraph type="secondary" style={{ fontSize: 12.5 }}>
         {t('tasks.intro', {
-          defaultValue: 'Tasks are managed in WorkLenz as usual. Every task is Internal Only until you share it.',
+          defaultValue: 'Tasks are managed in Astra Flow as usual. Every task is Internal Only until you share it.',
         })}
       </Typography.Paragraph>
 

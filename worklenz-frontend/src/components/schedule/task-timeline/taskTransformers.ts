@@ -88,7 +88,7 @@ const adjustColorForTheme = (color: string, isDarkMode: boolean): string => {
 };
 
 /**
- * Transform Worklenz task data to gantt-task-react format
+ * Transform Astra Flow task data to gantt-task-react format
  */
 export const transformTasksToGanttFormat = (
   tasks: TaskTimelineItem[],

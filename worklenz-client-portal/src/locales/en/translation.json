@@ -105,8 +105,8 @@
     "title": "Client Portal",
     "poweredBy": "Powered by",
     "name": "Client Portal",
-    "defaultPortalName": "Worklenz Client Portal",
-    "worklenz": "Worklenz"
+    "defaultPortalName": "Astra Flow Client Portal",
+    "worklenz": "Astra Flow"
   },
   "invite": {
     "adding": "Adding you to the portal...",
@@ -147,8 +147,8 @@
     "failed_to_validate_invite": "Failed to validate invitation",
     "network_error": "Network error. Please check your connection.",
     "server_error": "Server error. Please try again later.",
-    "worklenz_account_found_title": "Worklenz Account Found",
-    "worklenz_account_found_message": "This email is already registered with a Worklenz account. Please use your existing Worklenz account password to sign up for the client portal."
+    "worklenz_account_found_title": "Astra Flow Account Found",
+    "worklenz_account_found_message": "This email is already registered with a Astra Flow account. Please use your existing Astra Flow account password to sign up for the client portal."
   },
   "dashboard": {
     "title": "Overview",

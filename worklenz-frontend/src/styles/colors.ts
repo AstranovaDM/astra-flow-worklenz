@@ -7,7 +7,7 @@ export const colors = {
   lightGray: '#707070',
   deepLightGray: '#d1d0d3',
   lightBeige: '#fde8b5',
-  skyBlue: '#1890ff',
+  skyBlue: '#1677FF',
   midBlue: '#b9cef1',
   paleBlue: '#e6f7ff',
   vibrantOrange: '#f56a00',

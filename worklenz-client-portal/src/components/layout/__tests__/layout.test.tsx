@@ -93,15 +93,15 @@ describe('Shell', () => {
     expect(await screen.findByText('dashboard page')).toBeInTheDocument();
   });
 
-  it('shows the Worklenz logo and the common portal name until the operator sets branding', async () => {
+  it('shows the Astra Flow logo and the common portal name until the operator sets branding', async () => {
     inLayout('/dashboard', { brandingSet: false });
-    expect(await screen.findByRole('img', { name: 'Worklenz' })).toBeInTheDocument();
+    expect(await screen.findByRole('img', { name: 'Astra Flow' })).toBeInTheDocument();
     expect(screen.getByText('Client Portal')).toBeInTheDocument();
   });
 
   it('keeps the fixed Client Portal title beside the logo, and the Portal Title in the switcher pill only', async () => {
     inLayout();
-    expect(await screen.findByRole('img', { name: 'Worklenz' })).toBeInTheDocument();
+    expect(await screen.findByRole('img', { name: 'Astra Flow' })).toBeInTheDocument();
     expect(screen.getByText('Client Portal')).toBeInTheDocument();
     expect(await screen.findAllByText('Ceydigital Project Hub')).toHaveLength(1);
   });

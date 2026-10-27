@@ -32,7 +32,7 @@ export const formatDateTime = (value: string | null | undefined, tz?: string | n
 export const daysFromToday = (value: string): number =>
   dayjs(value).startOf('day').diff(dayjs().startOf('day'), 'day');
 
-/** Resolve a Worklenz timezone id/name to an IANA zone, or null if it is not one. */
+/** Resolve a Astra Flow timezone id/name to an IANA zone, or null if it is not one. */
 export const toIanaZone = (name: string | null | undefined): string | null => {
   if (!name) return null;
   try {

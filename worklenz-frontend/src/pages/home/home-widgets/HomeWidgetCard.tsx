@@ -49,7 +49,7 @@ export const HomeWidgetCard: React.FC<HomeWidgetCardProps> = ({ title, extra, me
   );
 };
 
-/** The Worklenz logo loader, the same one Today's Priorities shows while its data loads. */
+/** The Astra Flow logo loader, the same one Today's Priorities shows while its data loads. */
 export const WidgetLoading: React.FC = () => (
   <div data-widget-data style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: LOADING_MIN_HEIGHT }}>
     <WorklenzLogoLoader />

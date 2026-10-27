@@ -15,7 +15,7 @@ const AuthPageHeader = ({ description }: AuthPageHeaderProp) => {
     <Flex vertical align="center" gap={8} style={{ marginBottom: 24 }}>
       <img
         src={currentTheme === 'dark' ? logoDark : logoLight}
-        alt="Worklenz logo"
+        alt="Astra Flow logo"
         style={{ width: '100%', maxWidth: 220, marginBottom: 8 }}
       />
       <Typography.Title level={2} style={{ 

@@ -64,7 +64,7 @@ export const useTeamSwitch = (): TeamSwitch => {
 
         const switchedTeam = teams.find(team => team.teamId === teamId);
         const name = switchedTeam
-          ? switchedTeam.portalTitle?.trim() || t('app.defaultPortalName', { defaultValue: 'Worklenz Client Portal' })
+          ? switchedTeam.portalTitle?.trim() || t('app.defaultPortalName', { defaultValue: 'Astra Flow Client Portal' })
           : undefined;
         if (name) message.success(t('organizations.switched_to', { defaultValue: 'Switched to {{name}}', name }));
         return true;

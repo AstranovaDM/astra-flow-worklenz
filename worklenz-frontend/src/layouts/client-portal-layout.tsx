@@ -92,7 +92,10 @@ const ClientPortalLayout = () => {
             minWidth: sidebarWidth,
             flexShrink: 0,
             height: '100%',
-            overflow: 'auto',
+            overflow: 'hidden',
+            position: 'sticky',
+            top: 0,
+            alignSelf: 'flex-start',
             background: railBg,
           }}
         >

@@ -63,7 +63,7 @@ describe('CsvMappingStepsContent - Step 3 (Map statuses)', () => {
     const link = screen.getByRole('link', { name: /Read about mapping statuses/i });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', WORKLENZ_STATUS_DOCS_URL);
-    expect(link.getAttribute('href')).not.toBe('https://worklenz.com/blog/');
+    expect(link.getAttribute('href')).not.toBe('https://astraconnect.io/blog');
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
@@ -79,7 +79,7 @@ describe('CsvMappingStepsContent - Step 3 (Map statuses)', () => {
 
     // After clicking, modal should be opened displaying details
     expect(screen.getByText('About Mapping Statuses')).toBeInTheDocument();
-    expect(screen.getByText('1. Worklenz Status Categories')).toBeInTheDocument();
+    expect(screen.getByText('1. Astra Flow Status Categories')).toBeInTheDocument();
 
     // Closing the modal works
     const gotItButton = screen.getByRole('button', { name: /Got It/i });

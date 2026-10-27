@@ -46,7 +46,7 @@ export interface ClientMe {
   organizationName: string;
   operatorName: string;
   language: string;
-  /** IANA/Worklenz timezone id; null means "use the browser's". */
+  /** IANA/Astra Flow timezone id; null means "use the browser's". */
   timezone: string | null;
   capabilities: ClientCapabilities;
   /** Operator switches (Portal Settings). */

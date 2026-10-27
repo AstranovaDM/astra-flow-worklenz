@@ -64,7 +64,7 @@ const PushNotificationTemplate = ({
             {notificationData.team}
           </>
         )}
-        {!notificationData.team && 'Worklenz'}
+        {!notificationData.team && 'Astra Flow'}
       </div>
       <div
         style={{

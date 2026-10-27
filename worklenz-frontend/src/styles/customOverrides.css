@@ -97,7 +97,7 @@
 }
 
 .overview-stat-card.light-mode:hover {
-  border-color: #1890ff;
+  border-color: #1677FF;
   box-shadow: 0 4px 16px rgba(24, 144, 255, 0.15);
 }
 
@@ -118,7 +118,7 @@
 }
 
 .overview-stat-card.dark-mode:hover {
-  border-color: #1890ff;
+  border-color: #1677FF;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -139,7 +139,7 @@
 
 /* reporting sidebar  */
 .custom-reporting-sider .ant-menu-item-selected {
-  border-inline-end: 3px solid #1890ff !important;
+  border-inline-end: 3px solid #1677FF !important;
   border-radius: 0;
 }
 

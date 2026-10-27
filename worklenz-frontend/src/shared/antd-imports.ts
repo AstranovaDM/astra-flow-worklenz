@@ -214,6 +214,7 @@ export {
   ShoppingCartOutlined,
   RocketOutlined,
   SafetyCertificateOutlined,
+  FileTextOutlined,
   CrownOutlined,
   FireOutlined,
   SlackOutlined,

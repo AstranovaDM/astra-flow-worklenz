@@ -1,4 +1,4 @@
-// Enhanced performance monitoring for Worklenz application
+// Enhanced performance monitoring for Astra Flow application
 
 // Performance monitoring constants
 export const PERFORMANCE_CONFIG = {

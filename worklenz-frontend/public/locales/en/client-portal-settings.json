@@ -82,7 +82,6 @@
   "pendingUploadTag": "Pending Upload",
   "pendingRemovalTag": "Pending Removal",
   "organizationLogoWillBeUsedText": "Organization logo will be used",
-
   "navCompanyDetails": "Company Details",
   "navBranding": "Branding",
   "navInvoiceTemplate": "Invoice Template",
@@ -91,20 +90,18 @@
   "navClientUsers": "Client User Management",
   "navTemplates": "Permission Templates",
   "navTicketing": "Ticketing Config",
-
   "invalidLogoFileTypeError": "Please select an image file.",
   "logoFileTooLargeError": "Logo must be smaller than 2MB.",
   "logoUploadFailedError": "Failed to upload logo.",
-
   "portalLogoLabel": "Portal Logo",
   "portalTitleLabel": "Portal Title",
   "portalTitlePlaceholder": "e.g., Acme Client Hub",
   "brandColorLabel": "Brand Color",
   "recommendedColorsLabel": "Recommended",
   "portalThemeLabel": "Theme",
-  "poweredByLabel": "Show \"Powered by Worklenz\"",
-  "poweredByDescription": "Display a \"Powered by Worklenz\" note at the bottom right of the client portal.",
-  "poweredByPreview": "Powered by Worklenz",
+  "poweredByLabel": "Show \"Powered by Astra Flow\"",
+  "poweredByDescription": "Display a \"Powered by Astra Flow\" note at the bottom right of the client portal.",
+  "poweredByPreview": "Powered by Astra Flow",
   "lightPortalButton": "Light portal",
   "darkPortalButton": "Dark portal",
   "defaultPortalTitlePreview": "Client Portal",
@@ -112,10 +109,8 @@
   "previewLatestInvoiceText": "Latest invoice",
   "previewInvoiceSampleText": "USD 2,500.00 · due in 6 days",
   "previewViewTasksButton": "View my tasks",
-
   "brandingTitle": "Branding",
-  "brandingBusinessOnly": "Portal logo, colors and removing the Worklenz footer are available on the Business plan.",
-
+  "brandingBusinessOnly": "Portal logo, colors and removing the Astra Flow footer are available on the Business plan.",
   "invoiceTemplateTitle": "Invoice Template",
   "invoiceTemplateDescription": "Choose how invoices look when downloaded or previewed by your team and clients.",
   "invoiceMoreCustomizationTitle": "More customization coming soon",
@@ -125,7 +120,6 @@
   "invoiceShowLogoLabel": "Show Company Logo on Invoice",
   "invoiceShowLogoDescription": "Display your portal logo in the invoice header.",
   "invoicePreviewLabel": "Preview",
-
   "visibilityTitle": "Client Visible Selection",
   "visibilityDescription": "Choose which sections appear in the client portal.",
   "visibility": {
@@ -162,7 +156,6 @@
       "description": "Shows the Chats section in the client portal."
     }
   },
-
   "notificationsTitle": "Notifications",
   "notificationsDescription": "Choose what your team is notified about from client activity.",
   "notifications": {
@@ -179,7 +172,6 @@
       "description": "Notify the team when a client uploads a file."
     }
   },
-
   "clientUsers": {
     "bannerTitle": "Not enforced yet",
     "bannerDescription": "These settings define what a company's point of contact (POC) will be allowed to do once the client-facing portal supports it. For now, POC is a directory label only — nothing here is enforced anywhere yet.",
@@ -198,12 +190,10 @@
     "guardrail2": "A point of contact never sees your internal team directory or gets organization-admin access.",
     "guardrail3": "Removing a company's only point of contact never deletes the company or its other users — it just leaves that company without one."
   },
-
   "permissionTemplates": {
     "bannerTitle": "Read-only",
     "bannerDescription": "Picking a template sets that permission level on every one of the company's current projects in one click — admins can still fine-tune access project by project afterward. Available when adding a company user or from Assign Projects on any existing user."
   },
-
   "ticketingConfig": {
     "title": "Ticket Statuses",
     "description": "Open, In Progress and Resolved always exist and can't be removed. Add team-defined statuses for workflows specific to your team — they show up in both the List and Board views of Ticketing.",
