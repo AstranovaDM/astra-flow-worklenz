@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,9 +6,14 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
 
 import { LOGO_LIGHT, LOGO_DARK, XMAS_LOGO_LIGHT, XMAS_LOGO_DARK } from '@/shared/constants';
+import { PROJECTS_RAIL_SUB_ROUTES, FINANCE_RAIL_SUB_ROUTES } from '@/features/navigation/nav-registry';
+
+const PROJECT_DETAIL_PATH =
+  /^\/worklenz\/projects\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 
 const NavbarLogo = () => {
   const { t } = useTranslation('navbar');
+  const location = useLocation();
   const themeMode = useSelector((state: RootState) => state.themeReducer.mode);
   const organization = useSelector((state: RootState) => state.adminCenterReducer.organization);
   const loadingOrganization = useSelector(
@@ -20,16 +25,49 @@ const NavbarLogo = () => {
     return now.getMonth() === 11; // December
   }, []);
 
+  // Header sits on navy rail chrome for these routes even in light theme —
+  // use the reversed (light-ink) lockup so the mark stays readable.
+  const isDarkChrome = useMemo(() => {
+    if (themeMode === 'dark') return true;
+    const path = location.pathname;
+    if (
+      path === '/worklenz/home' ||
+      path.endsWith('/home') ||
+      path.startsWith('/worklenz/home/') ||
+      path.includes('/worklenz/planner') ||
+      path.includes('/worklenz/schedule') ||
+      path.includes('/worklenz/reporting') ||
+      path.includes('/worklenz/client-portal') ||
+      path === '/worklenz/projects' ||
+      (path.endsWith('/projects') && !path.includes('/admin-center/')) ||
+      PROJECT_DETAIL_PATH.test(path) ||
+      path.includes('/worklenz/team-lead-reports') ||
+      path === '/worklenz/finance' ||
+      path.endsWith('/finance')
+    ) {
+      return true;
+    }
+    if (path.startsWith('/worklenz/projects/')) {
+      const segment = path.slice('/worklenz/projects/'.length).split('/')[0];
+      if (PROJECTS_RAIL_SUB_ROUTES.has(segment)) return true;
+    }
+    if (path.startsWith('/worklenz/finance/')) {
+      const segment = path.slice('/worklenz/finance/'.length).split('/')[0];
+      if (FINANCE_RAIL_SUB_ROUTES.has(segment)) return true;
+    }
+    return false;
+  }, [themeMode, location.pathname]);
+
   const defaultLogo = useMemo(
     () =>
-      themeMode === 'dark'
+      isDarkChrome
         ? isChristmasSeason
           ? XMAS_LOGO_DARK
           : LOGO_DARK
         : isChristmasSeason
           ? XMAS_LOGO_LIGHT
           : LOGO_LIGHT,
-    [themeMode, isChristmasSeason]
+    [isDarkChrome, isChristmasSeason]
   );
 
   const logoSrc = useMemo(() => {
@@ -78,14 +116,7 @@ const NavbarLogo = () => {
           onError={e => {
             // Fallback to default logo on error
             const target = e.target as HTMLImageElement;
-            target.src =
-              themeMode === 'dark'
-                ? isChristmasSeason
-                  ? XMAS_LOGO_DARK
-                  : LOGO_DARK
-                : isChristmasSeason
-                  ? XMAS_LOGO_LIGHT
-                  : LOGO_LIGHT;
+            target.src = defaultLogo;
           }}
         />
       </div>

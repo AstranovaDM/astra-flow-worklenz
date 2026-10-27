@@ -7,14 +7,16 @@ import {
 } from '@/shared/antd-imports';
 import dayjs from 'dayjs';
 import { DatePresetKey, getDatePresetRange } from '@/utils/date-presets';
-import astraFlowLockupLight from '@/assets/images/astra-flow-lockup.png';
-import astraFlowLockupDark from '@/assets/images/astra-flow-lockup-dark.png';
+import astraFlowLockupLightInk from '@/assets/images/astra-flow-lockup.png';
+import astraFlowLockupDarkInk from '@/assets/images/astra-flow-lockup-dark.png';
 
-// logos — local Astra Flow lockups (light + reversed for dark backgrounds)
-export const LOGO_LIGHT = astraFlowLockupLight;
-export const LOGO_DARK = astraFlowLockupDark;
-export const XMAS_LOGO_LIGHT = astraFlowLockupLight;
-export const XMAS_LOGO_DARK = astraFlowLockupDark;
+// logos — pick by chrome, not by filename:
+// - LOGO_LIGHT = dark ink for light backgrounds
+// - LOGO_DARK = light/reversed ink for dark backgrounds (navy rail, dark theme)
+export const LOGO_LIGHT = astraFlowLockupDarkInk;
+export const LOGO_DARK = astraFlowLockupLightInk;
+export const XMAS_LOGO_LIGHT = astraFlowLockupDarkInk;
+export const XMAS_LOGO_DARK = astraFlowLockupLightInk;
 
 export const avatarNamesMap: { [x: string]: string } = {
   A: '#154c9b',
