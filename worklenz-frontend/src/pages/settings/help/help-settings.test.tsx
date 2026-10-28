@@ -2,16 +2,22 @@ import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Same instance the page uses (it imports antd via this re-export, which
 // resolves 'antd/es'); spying on `antd`'s own `message` would miss it.
 import { ConfigProvider, message, theme } from '@/shared/antd-imports';
 
-const { mockGetLatest, mockTrack, mockEnv } = vi.hoisted(() => ({
+const { mockGetLatest, mockTrack, mockEnv, mockHelpFlags } = vi.hoisted(() => ({
   mockGetLatest: vi.fn(),
   mockTrack: vi.fn(),
   mockEnv: { version: null as string | null },
+  mockHelpFlags: {
+    showDocsAndChangelog: false,
+    showReleaseNotes: false,
+    showCommunityLinks: false,
+  },
 }));
 
 vi.mock('@/api/whats-new/whats-new.api.service', () => ({
@@ -41,6 +47,10 @@ vi.mock('@/hooks/useDoumentTItle', () => ({ useDocumentTitle: vi.fn() }));
 
 vi.mock('@/config/env', () => ({ getAppVersion: () => mockEnv.version }));
 
+vi.mock('@/lib/settings/settings-constants', () => ({
+  HELP_UI_FLAGS: mockHelpFlags,
+}));
+
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (key: string, options?: { defaultValue?: string }) => options?.defaultValue ?? key,
@@ -54,7 +64,7 @@ import {
   evt_settings_help_visit,
 } from '@/shared/worklenz-analytics-events';
 import * as helpLinks from '@/shared/help-links-constants';
-import HelpSettings from './help-settings';
+import HelpSettings, { getVisibleHelpGroups } from './help-settings';
 
 type WhatsNewState = ReturnType<typeof whatsNewReducer>;
 
@@ -66,6 +76,12 @@ const RELEASE: ILatestWhatsNewRelease = {
   changelog_url: null,
   preview_text: 'Notes',
   is_new: true,
+};
+
+const enableFullHelpCatalog = () => {
+  mockHelpFlags.showDocsAndChangelog = true;
+  mockHelpFlags.showReleaseNotes = true;
+  mockHelpFlags.showCommunityLinks = true;
 };
 
 const renderHelp = (overrides: Partial<WhatsNewState> = {}, isDarkTheme = false) => {
@@ -82,9 +98,13 @@ const renderHelp = (overrides: Partial<WhatsNewState> = {}, isDarkTheme = false)
 
   render(
     <Provider store={store}>
-      <ConfigProvider theme={{ algorithm: isDarkTheme ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
-        <HelpSettings />
-      </ConfigProvider>
+      <MemoryRouter>
+        <ConfigProvider
+          theme={{ algorithm: isDarkTheme ? theme.darkAlgorithm : theme.defaultAlgorithm }}
+        >
+          <HelpSettings />
+        </ConfigProvider>
+      </MemoryRouter>
     </Provider>
   );
 
@@ -113,11 +133,25 @@ const EXTERNAL_LINKS: Array<[label: string, url: string]> = [
   ['Privacy policy', helpLinks.WORKLENZ_PRIVACY_POLICY_URL],
 ];
 
+const HIDDEN_BY_DEFAULT = [
+  'Documentation',
+  'Release notes',
+  'Changelog',
+  'YouTube',
+  'Discord',
+  'Facebook',
+  'LinkedIn',
+  'X',
+];
+
 describe('HelpSettings', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockEnv.version = null;
     mockGetLatest.mockResolvedValue({ done: true, body: RELEASE });
+    mockHelpFlags.showDocsAndChangelog = false;
+    mockHelpFlags.showReleaseNotes = false;
+    mockHelpFlags.showCommunityLinks = false;
   });
 
   afterEach(() => {
@@ -125,34 +159,43 @@ describe('HelpSettings', () => {
     vi.restoreAllMocks();
   });
 
-  describe('layout', () => {
-    it('should list every item in the spec order, in three groups split by dividers', () => {
+  describe('HELP_UI_FLAGS defaults (Astra)', () => {
+    it('should keep Email support, Privacy policy, Legal notices, and About visible', () => {
       renderHelp(succeeded(RELEASE));
 
-      const labels = [
-        'Documentation',
-        'Release notes',
-        'Changelog',
-        'Email support',
-        'YouTube',
-        'Discord',
-        'Facebook',
-        'LinkedIn',
-        'X',
-        'Privacy policy',
-        'Legal notices',
-        'About',
-      ];
-      const elements = labels.map(label => screen.getByText(label));
+      expect(screen.getByRole('link', { name: /^Email support/ })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: /^Privacy policy/ })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Legal notices' })).toBeInTheDocument();
+      expect(screen.getByText('About')).toBeInTheDocument();
+    });
 
-      elements.slice(1).forEach((element, index) => {
-        const previous = elements[index];
-        expect(
-          previous.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_FOLLOWING
-        ).toBeTruthy();
-      });
-      expect(screen.getAllByRole('separator')).toHaveLength(2);
-      expect(screen.getAllByRole('list')).toHaveLength(3);
+    it('should hide docs, changelog, community links, and release notes behind flags', () => {
+      renderHelp(succeeded(RELEASE));
+
+      for (const label of HIDDEN_BY_DEFAULT) {
+        expect(screen.queryByText(label)).not.toBeInTheDocument();
+      }
+      expect(mockGetLatest).not.toHaveBeenCalled();
+    });
+
+    it('should drop empty groups so only one divider remains', () => {
+      renderHelp(succeeded(RELEASE));
+
+      expect(screen.getAllByRole('list')).toHaveLength(2);
+      expect(screen.getAllByRole('separator')).toHaveLength(1);
+    });
+
+    it('should keep Privacy policy only when it points at an Astra HTTPS URL', () => {
+      expect(helpLinks.WORKLENZ_PRIVACY_POLICY_URL).toBe('https://astraconnect.io/privacy');
+
+      const groups = getVisibleHelpGroups();
+      const privacy = groups.flatMap(g => g.rows).find(r => r.id === 'privacy_policy');
+
+      expect(privacy).toBeDefined();
+      expect(privacy?.kind).toBe('link');
+      if (privacy?.kind === 'link') {
+        expect(privacy.url).toBe('https://astraconnect.io/privacy');
+      }
     });
 
     it('should track a page visit', () => {
@@ -162,53 +205,178 @@ describe('HelpSettings', () => {
     });
   });
 
-  describe.each([false, true])('theme and keyboard access (dark: %s)', isDarkTheme => {
-    it('opens release notes using the keyboard', async () => {
-      const user = userEvent.setup();
-      const store = renderHelp(succeeded(RELEASE), isDarkTheme);
-
-      await user.tab();
-      expect(screen.getByRole('link', { name: /^Documentation/ })).toHaveFocus();
-      await user.tab();
-      expect(screen.getByRole('button', { name: 'Release notes' })).toHaveFocus();
-      await user.keyboard('{Enter}');
-      expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(true);
+  describe('full catalog (flags enabled)', () => {
+    beforeEach(() => {
+      enableFullHelpCatalog();
     });
 
-    it('keeps unavailable release notes focusable and announces the reason', async () => {
-      const user = userEvent.setup();
-      const store = renderHelp(succeeded(null), isDarkTheme);
+    describe('layout', () => {
+      it('should list every item in the spec order, in three groups split by dividers', () => {
+        renderHelp(succeeded(RELEASE));
 
-      await user.tab();
-      await user.tab();
-      const row = screen.getByRole('button', { name: 'Release notes. No release notes published yet' });
-      expect(row).toHaveFocus();
-      expect(row).toHaveAttribute('aria-disabled', 'true');
-      await user.keyboard('{Enter}');
-      expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
+        const labels = [
+          'Documentation',
+          'Release notes',
+          'Changelog',
+          'Email support',
+          'YouTube',
+          'Discord',
+          'Facebook',
+          'LinkedIn',
+          'X',
+          'Privacy policy',
+          'Legal notices',
+          'About',
+        ];
+        const elements = labels.map(label => screen.getByText(label));
+
+        elements.slice(1).forEach((element, index) => {
+          const previous = elements[index];
+          expect(
+            previous.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_FOLLOWING
+          ).toBeTruthy();
+        });
+        expect(screen.getAllByRole('separator')).toHaveLength(2);
+        expect(screen.getAllByRole('list')).toHaveLength(3);
+      });
     });
-  });
 
-  describe('external links', () => {
-    it.each(EXTERNAL_LINKS)('%s opens in a new tab with noopener noreferrer', (label, url) => {
-      renderHelp(succeeded(RELEASE));
+    describe.each([false, true])('theme and keyboard access (dark: %s)', isDarkTheme => {
+      it('opens release notes using the keyboard', async () => {
+        const user = userEvent.setup();
+        const store = renderHelp(succeeded(RELEASE), isDarkTheme);
 
-      const link = screen.getByRole('link', { name: `${label} (opens in a new tab)` });
+        await user.tab();
+        expect(screen.getByRole('link', { name: /^Documentation/ })).toHaveFocus();
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Release notes' })).toHaveFocus();
+        await user.keyboard('{Enter}');
+        expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(true);
+      });
 
-      expect(link).toHaveAttribute('href', url);
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      it('keeps unavailable release notes focusable and announces the reason', async () => {
+        const user = userEvent.setup();
+        const store = renderHelp(succeeded(null), isDarkTheme);
+
+        await user.tab();
+        await user.tab();
+        const row = screen.getByRole('button', {
+          name: 'Release notes. No release notes published yet',
+        });
+        expect(row).toHaveFocus();
+        expect(row).toHaveAttribute('aria-disabled', 'true');
+        await user.keyboard('{Enter}');
+        expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
+      });
     });
 
-    it('should fire one item-click event per click, naming the item', () => {
-      renderHelp(succeeded(RELEASE));
+    describe('external links', () => {
+      it.each(EXTERNAL_LINKS)('%s opens in a new tab with noopener noreferrer', (label, url) => {
+        renderHelp(succeeded(RELEASE));
 
-      clickWithoutNavigating(screen.getByRole('link', { name: /^Discord/ }));
+        const link = screen.getByRole('link', { name: `${label} (opens in a new tab)` });
 
-      expect(mockTrack).toHaveBeenCalledWith(evt_settings_help_item_click, { item: 'discord' });
-      expect(
-        mockTrack.mock.calls.filter(([event]) => event === evt_settings_help_item_click)
-      ).toHaveLength(1);
+        expect(link).toHaveAttribute('href', url);
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      });
+
+      it('should fire one item-click event per click, naming the item', () => {
+        renderHelp(succeeded(RELEASE));
+
+        clickWithoutNavigating(screen.getByRole('link', { name: /^Discord/ }));
+
+        expect(mockTrack).toHaveBeenCalledWith(evt_settings_help_item_click, { item: 'discord' });
+        expect(
+          mockTrack.mock.calls.filter(([event]) => event === evt_settings_help_item_click)
+        ).toHaveLength(1);
+      });
+    });
+
+    describe('release notes row', () => {
+      it('should open the release viewer with the latest release and track the click', () => {
+        const store = renderHelp(succeeded(RELEASE));
+
+        fireEvent.click(screen.getByRole('button', { name: /Release notes/ }));
+
+        const state = store.getState().whatsNewReducer;
+        expect(state.isViewedModalOpen).toBe(true);
+        expect(state.viewedRelease).toEqual(RELEASE);
+        expect(mockTrack).toHaveBeenCalledWith(evt_settings_help_item_click, {
+          item: 'release_notes',
+        });
+      });
+
+      it('should stay disabled, without opening or tracking, when nothing is published', () => {
+        const store = renderHelp(succeeded(null));
+
+        const row = screen.getByRole('button', {
+          name: 'Release notes. No release notes published yet',
+        });
+        fireEvent.click(row);
+
+        expect(row).toHaveAttribute('aria-disabled', 'true');
+        expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
+        expect(mockTrack).not.toHaveBeenCalledWith(evt_settings_help_item_click, expect.anything());
+      });
+
+      it('should explain why it is disabled in a tooltip', async () => {
+        renderHelp(succeeded(null));
+
+        fireEvent.mouseEnter(screen.getByRole('button', { name: /Release notes/ }));
+
+        expect(await screen.findByRole('tooltip')).toHaveTextContent(
+          'No release notes published yet'
+        );
+      });
+
+      it('should resolve after load: busy first, then enabled once the latest release arrives', async () => {
+        renderHelp();
+
+        const row = screen.getByRole('button', { name: /Release notes/ });
+        expect(row).toBeDisabled();
+        expect(row).toHaveAttribute('aria-busy', 'true');
+
+        await waitFor(() => expect(row).toBeEnabled());
+        expect(mockGetLatest).toHaveBeenCalledTimes(1);
+      });
+
+      it('should not block the rest of the page on the release fetch', () => {
+        mockGetLatest.mockReturnValue(new Promise(() => {}));
+
+        renderHelp();
+
+        expect(screen.getByRole('link', { name: /Documentation/ })).toBeInTheDocument();
+        expect(screen.getByText('About')).toBeInTheDocument();
+      });
+
+      it('should retry on click after a failed load and open once it succeeds', async () => {
+        mockGetLatest
+          .mockRejectedValueOnce(new Error('network'))
+          .mockResolvedValueOnce({ done: true, body: RELEASE });
+
+        const store = renderHelp();
+        const row = screen.getByRole('button', { name: /Release notes/ });
+        await waitFor(() => expect(store.getState().whatsNewReducer.latestStatus).toBe('failed'));
+
+        fireEvent.click(row);
+
+        await waitFor(() => expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(true));
+        expect(mockGetLatest).toHaveBeenCalledTimes(2);
+      });
+
+      it('should show an error message when the retry fails too', async () => {
+        const errorSpy = vi.spyOn(message, 'error').mockImplementation(() => ({}) as never);
+        mockGetLatest.mockRejectedValue(new Error('network'));
+
+        const store = renderHelp();
+        await waitFor(() => expect(store.getState().whatsNewReducer.latestStatus).toBe('failed'));
+
+        fireEvent.click(screen.getByRole('button', { name: /Release notes/ }));
+
+        await waitFor(() => expect(errorSpy).toHaveBeenCalledTimes(1));
+        expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
+      });
     });
   });
 
@@ -220,7 +388,7 @@ describe('HelpSettings', () => {
 
       expect(link).toHaveAttribute('href', helpLinks.WORKLENZ_SUPPORT_MAILTO_URL);
       expect(link.getAttribute('href')).toContain('mailto:support@astraconnect.io');
-      expect(link.getAttribute('href')).toContain('subject=Astra Flow%20support%20request');
+      expect(link.getAttribute('href')).toContain('subject=Astra%20Flow%20support%20request');
     });
 
     it('should hand off to the mail app instead of opening a tab', () => {
@@ -244,92 +412,6 @@ describe('HelpSettings', () => {
       expect(
         mockTrack.mock.calls.filter(([event]) => event === evt_settings_help_item_click)
       ).toHaveLength(1);
-    });
-  });
-
-  describe('release notes row', () => {
-    it('should open the release viewer with the latest release and track the click', () => {
-      const store = renderHelp(succeeded(RELEASE));
-
-      fireEvent.click(screen.getByRole('button', { name: /Release notes/ }));
-
-      const state = store.getState().whatsNewReducer;
-      expect(state.isViewedModalOpen).toBe(true);
-      expect(state.viewedRelease).toEqual(RELEASE);
-      expect(mockTrack).toHaveBeenCalledWith(evt_settings_help_item_click, {
-        item: 'release_notes',
-      });
-    });
-
-    it('should stay disabled, without opening or tracking, when nothing is published', () => {
-      const store = renderHelp(succeeded(null));
-
-      const row = screen.getByRole('button', {
-        name: 'Release notes. No release notes published yet',
-      });
-      fireEvent.click(row);
-
-      expect(row).toHaveAttribute('aria-disabled', 'true');
-      expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
-      expect(mockTrack).not.toHaveBeenCalledWith(evt_settings_help_item_click, expect.anything());
-    });
-
-    it('should explain why it is disabled in a tooltip', async () => {
-      renderHelp(succeeded(null));
-
-      fireEvent.mouseEnter(screen.getByRole('button', { name: /Release notes/ }));
-
-      expect(await screen.findByRole('tooltip')).toHaveTextContent(
-        'No release notes published yet'
-      );
-    });
-
-    it('should resolve after load: busy first, then enabled once the latest release arrives', async () => {
-      renderHelp();
-
-      const row = screen.getByRole('button', { name: /Release notes/ });
-      expect(row).toBeDisabled();
-      expect(row).toHaveAttribute('aria-busy', 'true');
-
-      await waitFor(() => expect(row).toBeEnabled());
-      expect(mockGetLatest).toHaveBeenCalledTimes(1);
-    });
-
-    it('should not block the rest of the page on the release fetch', () => {
-      mockGetLatest.mockReturnValue(new Promise(() => {}));
-
-      renderHelp();
-
-      expect(screen.getByRole('link', { name: /Documentation/ })).toBeInTheDocument();
-      expect(screen.getByText('About')).toBeInTheDocument();
-    });
-
-    it('should retry on click after a failed load and open once it succeeds', async () => {
-      mockGetLatest
-        .mockRejectedValueOnce(new Error('network'))
-        .mockResolvedValueOnce({ done: true, body: RELEASE });
-
-      const store = renderHelp();
-      const row = screen.getByRole('button', { name: /Release notes/ });
-      await waitFor(() => expect(store.getState().whatsNewReducer.latestStatus).toBe('failed'));
-
-      fireEvent.click(row);
-
-      await waitFor(() => expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(true));
-      expect(mockGetLatest).toHaveBeenCalledTimes(2);
-    });
-
-    it('should show an error message when the retry fails too', async () => {
-      const errorSpy = vi.spyOn(message, 'error').mockImplementation(() => ({}) as never);
-      mockGetLatest.mockRejectedValue(new Error('network'));
-
-      const store = renderHelp();
-      await waitFor(() => expect(store.getState().whatsNewReducer.latestStatus).toBe('failed'));
-
-      fireEvent.click(screen.getByRole('button', { name: /Release notes/ }));
-
-      await waitFor(() => expect(errorSpy).toHaveBeenCalledTimes(1));
-      expect(store.getState().whatsNewReducer.isViewedModalOpen).toBe(false);
     });
   });
 

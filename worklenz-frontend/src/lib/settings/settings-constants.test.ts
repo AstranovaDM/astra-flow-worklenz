@@ -5,6 +5,7 @@ vi.mock('@/pages/settings/rate-card-settings/RateCardSettings', () => ({ default
 
 import {
   getAccessibleSettings,
+  HELP_UI_FLAGS,
   SETTINGS_UI_FLAGS,
   settingsItems,
 } from './settings-constants';
@@ -28,6 +29,14 @@ describe('settings-constants: Legal notices placement', () => {
     expect(legalNoticesItem?.groupKey).toBe('help-support');
     expect(legalNoticesItem?.groupKey).not.toBe('account-personal');
     expect(legalNoticesItem?.showInSidebar).toBe(false);
+  });
+});
+
+describe('settings-constants: HELP_UI_FLAGS', () => {
+  it('should hide docs, changelog, community links, and release notes by default', () => {
+    expect(HELP_UI_FLAGS.showDocsAndChangelog).toBe(false);
+    expect(HELP_UI_FLAGS.showReleaseNotes).toBe(false);
+    expect(HELP_UI_FLAGS.showCommunityLinks).toBe(false);
   });
 });
 
