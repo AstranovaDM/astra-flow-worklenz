@@ -84,6 +84,19 @@ export const SETTINGS_UI_FLAGS = {
   showMobileAppInSidebar: false,
 } as const;
 
+/**
+ * Help page UI flags — hide placeholder / unconfirmed external links without
+ * deleting Help row definitions. Flip a flag to true to surface the links again.
+ */
+export const HELP_UI_FLAGS = {
+  /** Documentation + Changelog rows on Settings > Help. */
+  showDocsAndChangelog: false,
+  /** Greyed-out Release notes placeholder when no published release exists. */
+  showReleaseNotes: false,
+  /** YouTube, Discord, Facebook, LinkedIn, X community rows. */
+  showCommunityLinks: false,
+} as const;
+
 // type of menu item in settings sidebar
 type SettingMenuItem = {
   key: string;

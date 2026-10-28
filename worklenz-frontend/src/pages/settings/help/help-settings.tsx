@@ -47,12 +47,62 @@ import {
   WORKLENZ_X_URL,
   WORKLENZ_YOUTUBE_URL,
 } from '@/shared/help-links-constants';
+import { HELP_UI_FLAGS } from '@/lib/settings/settings-constants';
+
+const isAstraHttpsUrl = (url: string): boolean => {
+  try {
+    const { protocol, hostname } = new URL(url);
+    return (
+      protocol === 'https:' &&
+      (hostname === 'astraconnect.io' || hostname.endsWith('.astraconnect.io'))
+    );
+  } catch {
+    return false;
+  }
+};
+
+const isHelpRowVisible = (row: HelpRow): boolean => {
+  if (row.kind === 'email' || row.kind === 'route' || row.kind === 'about') {
+    return true;
+  }
+  if (row.kind === 'release-notes') {
+    return HELP_UI_FLAGS.showReleaseNotes;
+  }
+  if (row.kind === 'link') {
+    if (row.id === 'privacy_policy') {
+      return isAstraHttpsUrl(row.url);
+    }
+    if (row.id === 'documentation' || row.id === 'changelog') {
+      return HELP_UI_FLAGS.showDocsAndChangelog;
+    }
+    if (
+      row.id === 'youtube' ||
+      row.id === 'discord' ||
+      row.id === 'facebook' ||
+      row.id === 'linkedin' ||
+      row.id === 'x'
+    ) {
+      return HELP_UI_FLAGS.showCommunityLinks;
+    }
+  }
+  return true;
+};
+
+/** Full Help catalog with empty groups removed (keeps dividers tidy). */
+export const getVisibleHelpGroups = (groups: HelpGroup[] = HELP_GROUPS): HelpGroup[] =>
+  groups
+    .map(group => ({
+      ...group,
+      rows: group.rows.filter(isHelpRowVisible),
+    }))
+    .filter(group => group.rows.length > 0);
 
 export const HelpSettings = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('settings/help');
   const { trackMixpanelEvent } = useMixpanelTracking();
   const latestStatus = useAppSelector(state => state.whatsNewReducer.latestStatus);
+  const visibleGroups = getVisibleHelpGroups();
 
   useDocumentTitle(t('pageTitle', { defaultValue: 'Help' }));
 
@@ -62,8 +112,11 @@ export const HelpSettings = () => {
 
   // Non-blocking: the page renders straight away and the Release notes row
   // resolves its enabled/disabled state once this settles. A failed earlier
-  // attempt is retried on the next visit.
+  // attempt is retried on the next visit. Skip the fetch while the row is hidden.
   useEffect(() => {
+    if (!HELP_UI_FLAGS.showReleaseNotes) {
+      return;
+    }
     if (latestStatus === 'idle' || latestStatus === 'failed') {
       dispatch(fetchLatestRelease());
     }
@@ -84,14 +137,13 @@ export const HelpSettings = () => {
           </Typography.Title>
           <Typography.Text type="secondary">
             {t('pageDescription', {
-              defaultValue:
-                'Documentation, release notes, community links, and version information.',
+              defaultValue: 'Support, legal notices, and version information.',
             })}
           </Typography.Text>
         </Flex>
 
         <Flex vertical style={{ maxWidth: HELP_LIST_MAX_WIDTH }}>
-          {HELP_GROUPS.map((group, index) => (
+          {visibleGroups.map((group, index) => (
             <Fragment key={group.key}>
               {index > 0 && <Divider style={{ margin: '8px 0' }} />}
               <ul role="list" style={LIST_RESET_STYLE}>
